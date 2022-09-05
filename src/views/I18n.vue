@@ -1,10 +1,9 @@
 <template>
-  <div></div>
+  <div>Hi this is i18n</div>
 </template>
-
 <script>
 export default {
-  name: "",
+  name: "I18n",
   components: {},
   data() {
     return {
@@ -22,5 +21,3 @@ export default {
   methods: {},
 };
 </script>
-
-<style scoped></style>

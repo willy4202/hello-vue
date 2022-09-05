@@ -18,6 +18,7 @@ import VueGtag from "vue-gtag-next";
 import VueUploadComponent from "vue-upload-component";
 import YouTube from "vue3-youtube";
 import VueScrollPicker from "vue3-scroll-picker";
+import i18n from "@/i18n/index.js";
 
 createApp(App)
   .component("file-upload", VueUploadComponent)
@@ -30,4 +31,5 @@ createApp(App)
   })
   .use(store)
   .use(router)
+  .use(i18n)
   .mount("#app");
