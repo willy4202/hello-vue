@@ -15,14 +15,14 @@
     "core-js": "^3.8.3",
     "hooper": "^0.3.4",
     "jquery": "^3.6.1",
-    "popper.js": "^1.16.1",
     "scrollbooster": "^3.0.2",
     "v-calendar": "^3.0.0-alpha.8",
     "vue": "^3.2.38",
-    "vue-analytics": "^5.22.1",
+    "vue-gtag": "^2.0.1",
     "vue-router": "^4.0.3",
     "vue-scroll-picker": "^1.1.1",
-    "vue-upload-component": "^2.8.22",
+    "vue-upload-component": "^3.1.2",
+    "vue3-popper": "^1.5.0",
     "vue3-text-clamp": "^0.1.1",
     "vue3-youtube": "^0.1.9",
     "vuex": "^4.0.0"
@@ -74,6 +74,10 @@
       }
     ]
   },
+  "eslintIgnore": [
+    "**/*.js",
+    "**/*.vue"
+  ],
   "browserslist": [
     "> 1%",
     "last 2 versions",
