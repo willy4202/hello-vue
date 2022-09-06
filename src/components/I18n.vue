@@ -1,5 +1,5 @@
 <template>
-  <h1>this is i18n!</h1>
+  <h1>{{ $t("title") }}</h1>
   <p>{{ $t("hello") }}</p>
 </template>
 <script>

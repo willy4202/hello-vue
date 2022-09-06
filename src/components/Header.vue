@@ -25,15 +25,8 @@ export default {
       example: "",
     };
   },
-  beforeCreate() {},
   created() {
-    console.log(this.$i18n.availableLocales);
+    // console.log(this.$i18n.availableLocales);
   },
-  beforeMount() {},
-  mounted() {},
-  beforeUpdate() {},
-  updated() {},
-  beforeUnmount() {},
-  unmounted() {},
 };
 </script>
