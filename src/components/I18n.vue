@@ -1,27 +1,16 @@
 <template>
-  <nav class="container mb-4 mt-4">
-    <div class="row">
-      <div class="col-9"></div>
-      <div class="col-3">
-        <select v-model="$i18n.locale">
-          <option
-            v-for="locale in $i18n.availableLocales"
-            :key="locale"
-            :value="locale"
-          >
-            {{ locale }}
-          </option>
-        </select>
-      </div>
-    </div>
-  </nav>
+  <Header />
   <h1>{{ $t("title") }}</h1>
   <p>{{ $t("hello") }}</p>
   {{ lang }}
 </template>
 <script>
+import Header from "@/components/Header.vue";
 export default {
   name: "I18n",
+  components: {
+    Header,
+  },
   data() {
     return {
       lang: "",
