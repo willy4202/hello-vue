@@ -3,10 +3,14 @@
     <div class="row">
       <div class="col-9"></div>
       <div class="col-3">
-        <select>
-          <option value="en">English</option>
-          <option value="ru">Russian</option>
-          <option value="ar">Arabic</option>
+        <select v-model="$i18n.locale">
+          <option
+            v-for="locale in $i18n.availableLocales"
+            :key="locale"
+            :value="locale"
+          >
+            {{ locale }}
+          </option>
         </select>
       </div>
     </div>
@@ -22,15 +26,14 @@ export default {
     };
   },
   beforeCreate() {},
-  created() {},
+  created() {
+    console.log(this.$i18n.availableLocales);
+  },
   beforeMount() {},
   mounted() {},
   beforeUpdate() {},
   updated() {},
   beforeUnmount() {},
   unmounted() {},
-  methods: {
-    handleChange(e) {},
-  },
 };
 </script>

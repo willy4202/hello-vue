@@ -16,5 +16,6 @@ export default {
     Header,
     I18n,
   },
+  created() {},
 };
 </script>
