@@ -1,15 +1,15 @@
 <template>
-  <Header />
+  <SelectLang />
   <h1>{{ $t("title") }}</h1>
   <p>{{ $t("hello") }}</p>
   {{ lang }}
 </template>
 <script>
-import Header from "@/components/Header.vue";
+import SelectLang from "@/components/SelectLang.vue";
 export default {
   name: "I18n",
   components: {
-    Header,
+    SelectLang,
   },
   data() {
     return {
