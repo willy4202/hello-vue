@@ -1,4 +1,8 @@
 {
   "title": "this is i18n!",
-  "hello": "hello world!"
+  "hello": "hello world!",
+  "message": {
+    "bye": "{msg} world",
+    "go": "{1} world"
+  }
 }

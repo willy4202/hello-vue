@@ -2,8 +2,12 @@
   <SelectLang />
   <h1>{{ $t("title") }}</h1>
   <p>{{ $t("hello") }}</p>
-  {{ lang }}
+  <!-- Named를 활용해, {{}}안에서 msg를 할당해 보여줄 수 있다. -->
+  <p>{{ $t("message.bye", { msg: "goodbye" }) }}</p>
+  <!-- List의 index로 할당 가능 -->
+  <p>{{ $t("message.go", ["lets'go"]) }}</p>
 </template>
+
 <script>
 import SelectLang from "@/components/SelectLang.vue";
 export default {
