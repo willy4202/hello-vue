@@ -6,6 +6,10 @@
   <p>{{ $t("message.bye", { msg: "goodbye" }) }}</p>
   <!-- List의 index로 할당 가능 -->
   <p>{{ $t("message.go", ["lets'go"]) }}</p>
+  <!-- 리터럴로 string 적용 -->
+  <p>email : {{ $t("address", { account: "willy", domain: "naver.com" }) }}</p>
+  <!-- Linked 메시지 -->
+  <p>{{ $t("message.linked") }}</p>
 </template>
 
 <script>
