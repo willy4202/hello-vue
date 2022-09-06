@@ -18,9 +18,18 @@ import VueGtag from "vue-gtag-next";
 import VueUploadComponent from "vue-upload-component";
 import YouTube from "vue3-youtube";
 import VueScrollPicker from "vue3-scroll-picker";
-import i18n from "@/i18n/index.js";
+import { createI18n } from "vue-i18n";
+import messages from "./i18n";
 
-createApp(App)
+const i18n = createI18n({
+  locale: "en",
+  fallbackLocale: "ru",
+  messages,
+});
+
+const app = createApp(App);
+
+app
   .component("file-upload", VueUploadComponent)
   .component(VueCountdown.name, VueCountdown)
   .component("YouTube", YouTube)
