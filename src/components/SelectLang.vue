@@ -5,7 +5,7 @@
       <div class="col-3">
         <select v-model="$i18n.locale">
           <option
-            v-for="locale in $i18n.availableLocales"
+            v-for="locale in $i18n.availableLocales.reverse()"
             :key="locale"
             :value="locale"
           >
@@ -17,14 +17,5 @@
   </nav>
 </template>
 <script>
-export default {
-  name: "",
-  components: {},
-  data() {
-    return {
-      example: "",
-    };
-  },
-  created() {},
-};
+export default {};
 </script>

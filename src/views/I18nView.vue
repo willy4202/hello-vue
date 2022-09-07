@@ -24,7 +24,7 @@ export default {
     let isCookie = this.$cookies.isKey("lang");
     isCookie ? this.checkCookie() : this.checkUserLang();
   },
-  beforeUpdate() {
+  updated() {
     this.setCookie();
   },
 
