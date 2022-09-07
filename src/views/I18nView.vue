@@ -6,7 +6,7 @@
   <p>{{ $t("message.bye", { msg: "goodbye" }) }}</p>
   <!-- List의 index로 할당 가능 -->
   <p>{{ $t("message.go", ["lets'go"]) }}</p>
-  <!-- 리터럴로 string 적용 -->
+  <!-- 리터럴 string 적용 -->
   <p>email : {{ $t("address", { account: "willy", domain: "naver.com" }) }}</p>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   },
   created() {
     let isCookie = this.$cookies.isKey("lang");
-    isCookie ? this.checkCookie() : this.checkPreferLang();
+    isCookie ? this.checkCookie() : this.checkUserLang();
   },
   beforeUpdate() {
     this.setCookie();
@@ -44,7 +44,7 @@ export default {
       유저가 선호하는 언어를 찾아서, 프로젝트 내에서 지원이 가능한 언어라면
       선호 언어를 기본 언어로 만들어주는 함수
      */
-    checkPreferLang() {
+    checkUserLang() {
       let userLang = navigator.language.split("-")[0];
       let supportLang = this.$i18n.availableLocales;
       if (supportLang.includes(userLang)) {
