@@ -21,7 +21,8 @@ export default {
     return {};
   },
   created() {
-    this.checkCookie();
+    let isCookie = this.$cookies.isKey("lang");
+    isCookie ? this.checkCookie() : this.checkPreferLang();
   },
   beforeUpdate() {
     this.setCookie();
@@ -30,12 +31,7 @@ export default {
   methods: {
     /**  쿠키 확인 후, 있으면 쿠키를 바탕으로 초기 언어를 세팅해주는 함수 */
     checkCookie() {
-      let cookieLang = this.$cookies.get("lang");
-      if (!!cookieLang) {
-        this.$i18n.locale = cookieLang;
-      } else {
-        this.checkPreferLang();
-      }
+      this.$i18n.locale = this.$cookies.get("lang");
     },
 
     /** select에서 언어를 선택하면, 해당 언어를 key value로 가지는 cookie를 생성해주는 함수 */
