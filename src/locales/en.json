@@ -5,8 +5,7 @@
     "bye": "{msg} world",
     "go": "{1} world",
     "the_world": "the world",
-    "dio": "DIO:",
-    "linked": "@:message.the_world @:message.dio"
+    "dio": "DIO:"
   },
   "address": "{account}{'@'}{domain}"
 }

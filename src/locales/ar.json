@@ -1,4 +1,11 @@
 {
   "title": "هذا هو i18n!",
-  "hello": "!مرحبا بالعالم"
+  "hello": "!مرحبا بالعالم",
+  "message": {
+    "bye": "{msg} مرحبا",
+    "go": "{1} مرحبا",
+    "the_world": "the مرحبا",
+    "dio": "DIO:"
+  },
+  "address": "{account}{'@'}{domain}"
 }
