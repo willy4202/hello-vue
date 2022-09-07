@@ -20,25 +20,43 @@ export default {
     SelectLang,
   },
   data() {
-    return {
-      lang: "",
-    };
+    return {};
   },
   created() {
-    console.log(this.$i18n.locale);
+    this.checkCookie();
   },
+  beforeUpdate() {
+    this.setCookie();
+  },
+
   methods: {
     /**  쿠키 확인 후, 있으면 쿠키를 바탕으로 초기 언어를 세팅해주는 함수 */
-    checkCookie() {},
+    checkCookie() {
+      let cookieLang = this.$cookies.get("lang");
+      if (!!cookieLang) {
+        this.$i18n.locale = cookieLang;
+      } else {
+        this.checkPreferLang();
+      }
+    },
 
     /** select에서 언어를 선택하면, 해당 언어를 key value로 가지는 cookie를 생성해주는 함수 */
-    setCookie(key, value, expired) {},
+    setCookie() {
+      let selectedLang = this.$i18n.locale;
+      this.$cookies.set("lang", selectedLang);
+    },
 
-    /** 브라우저상에서 유저가 선호하는 언어가,
-     * i18n 프로젝트 내에서 지원이 가능한 언어라면
-     * 해당 언어를 기본 세팅으로 만들어주는 함수
+    /** 
+      유저가 선호하는 언어를 찾아서, 프로젝트 내에서 지원이 가능한 언어라면
+      선호 언어를 기본 언어로 만들어주는 함수
      */
-    checkPreferLang() {},
+    checkPreferLang() {
+      let userLang = navigator.language.split("-")[0];
+      let supportLang = this.$i18n.availableLocales;
+      if (supportLang.includes(userLang)) {
+        this.$i18n.locale = userLang;
+      }
+    },
   },
 };
 </script>

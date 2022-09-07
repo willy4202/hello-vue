@@ -20,10 +20,10 @@ import YouTube from "vue3-youtube";
 import VueScrollPicker from "vue3-scroll-picker";
 import { createI18n } from "vue-i18n";
 import messages from "./i18n";
+import VueCookies from "vue-cookies";
 
 const i18n = createI18n({
   locale: "en",
-  fallbackLocale: "ru",
   messages,
 });
 
@@ -41,4 +41,5 @@ app
   .use(store)
   .use(router)
   .use(i18n)
+  .use(VueCookies, { expire: "7d" })
   .mount("#app");
