@@ -23,7 +23,7 @@ import messages from "./i18n";
 import VueCookies from "vue-cookies";
 
 const i18n = createI18n({
-  locale: "en",
+  fallbackLocale: "en",
   messages,
 });
 
