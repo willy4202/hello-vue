@@ -32,18 +32,20 @@ export default {
   methods: {
     setLocale() {
       this.$i18n.locale =
-        this.getLoclaeFromCookie() ||
+        this.getLocaleFromCookie() ||
         this.getLocaleFromBroswer() ||
         this.$i18n.fallbackLocale;
     },
 
-    getLoclaeFromCookie() {
-      this.$cookies.get("lang");
+    getLocaleFromCookie() {
+      return this.$cookies.get("lang");
     },
 
     getLocaleFromBroswer() {
       const browserLang = navigator.language.split("-")[0];
-      this.$i18n.availableLocales.includes(browserLang) ? browserLang : null;
+      return this.$i18n.availableLocales.includes(browserLang)
+        ? browserLang
+        : null;
     },
 
     selectLocale() {
