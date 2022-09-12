@@ -23,32 +23,32 @@ export default {
     return {};
   },
   created() {
-    this.setLocale();
+    this.setLang();
   },
   updated() {
-    this.selectLocale();
+    this.selectLang();
   },
 
   methods: {
-    setLocale() {
+    setLang() {
       this.$i18n.locale =
-        this.getLocaleFromCookie() ||
-        this.getLocaleFromBroswer() ||
+        this.getLangFromCookie() ||
+        this.getLangFromBroswer() ||
         this.$i18n.fallbackLocale;
     },
 
-    getLocaleFromCookie() {
+    getLangFromCookie() {
       return this.$cookies.get("lang");
     },
 
-    getLocaleFromBroswer() {
+    getLangFromBroswer() {
       const browserLang = navigator.language.split("-")[0];
       return this.$i18n.availableLocales.includes(browserLang)
         ? browserLang
         : null;
     },
 
-    selectLocale() {
+    selectLang() {
       this.$cookies.set("lang", this.$i18n.locale);
     },
   },
