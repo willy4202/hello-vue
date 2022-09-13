@@ -19,36 +19,32 @@
 <script>
 export default {
   name: "I18n",
-  data() {
-    return {};
-  },
+
   created() {
-    this.setLang();
+    this.$i18n.locale = this.resolveLang();
   },
+
   updated() {
-    this.selectLang();
+    this.setLangInCookie();
   },
 
   methods: {
-    setLang() {
-      this.$i18n.locale =
-        this.getLangFromCookie() ||
-        this.getLangFromBroswer() ||
-        this.$i18n.fallbackLocale;
+    resolveLang() {
+      let lang = this.getCookie("lang") ?? this.getDefaultLang();
+      return this.$i18n.availableLocales.includes(lang)
+        ? lang
+        : this.$i18n.fallbackLocale;
     },
 
-    getLangFromCookie() {
-      return this.$cookies.get("lang");
+    getCookie(key) {
+      return this.$cookies.get(key);
     },
 
-    getLangFromBroswer() {
-      const browserLang = navigator.language.split("-")[0];
-      return this.$i18n.availableLocales.includes(browserLang)
-        ? browserLang
-        : null;
+    getDefaultLang() {
+      return navigator.language.split("-")[0];
     },
 
-    selectLang() {
+    setLangInCookie() {
       this.$cookies.set("lang", this.$i18n.locale);
     },
   },
