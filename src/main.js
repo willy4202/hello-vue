@@ -18,18 +18,8 @@ import VueGtag from "vue-gtag-next";
 import VueUploadComponent from "vue-upload-component";
 import YouTube from "vue3-youtube";
 import VueScrollPicker from "vue3-scroll-picker";
-import { createI18n } from "vue-i18n";
-import messages from "./locales";
 import VueCookies from "vue-cookies";
-import ruRule from "./locales/pluralizationRules";
-
-const i18n = createI18n({
-  fallbackLocale: "en",
-  messages,
-  pluralizationRules: {
-    ru: ruRule,
-  },
-});
+import i18n from "./locales";
 
 const app = createApp(App);
 
