@@ -19,15 +19,15 @@ import VueUploadComponent from "vue-upload-component";
 import YouTube from "vue3-youtube";
 import VueScrollPicker from "vue3-scroll-picker";
 import { createI18n } from "vue-i18n";
-import messages from "./i18n";
+import messages from "./locales";
 import VueCookies from "vue-cookies";
-import customRule from "./pluralizationRules";
+import ruRule from "./locales/pluralizationRules";
 
 const i18n = createI18n({
   fallbackLocale: "en",
   messages,
   pluralizationRules: {
-    ru: customRule,
+    ru: ruRule,
   },
 });
 
