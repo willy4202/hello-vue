@@ -8,10 +8,10 @@ const routes = [
     component: I18nView,
   },
   {
-    path: "/about",
-    name: "about",
+    path: "/l10n",
+    name: "l10n",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      import(/* webpackChunkName: "about" */ "../views/L10nView.vue"),
   },
 ];
 

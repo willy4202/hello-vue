@@ -21,10 +21,14 @@ import VueScrollPicker from "vue3-scroll-picker";
 import { createI18n } from "vue-i18n";
 import messages from "./i18n";
 import VueCookies from "vue-cookies";
+import customRule from "./pluralizationRules";
 
 const i18n = createI18n({
   fallbackLocale: "en",
   messages,
+  pluralizationRules: {
+    ru: customRule,
+  },
 });
 
 const app = createApp(App);
