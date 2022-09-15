@@ -1,13 +1,13 @@
 <template>
-  <select-lang-nav />
+  <lang-selector />
   <h1>{{ $t("title") }}</h1>
   <p>{{ $t("hello") }}</p>
 </template>
 
 <script>
-import SelectLangNav from "@/components/SelectLangNav.vue";
+import LangSelector from "@/components/LangSelector.vue";
 export default {
-  components: { SelectLangNav },
+  components: { LangSelector },
   name: "I18n",
 };
 </script>

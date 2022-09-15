@@ -1,5 +1,4 @@
 module.exports = {
-  // initialize scss variables for the whole project
   css: {
     loaderOptions: {
       sass: {
