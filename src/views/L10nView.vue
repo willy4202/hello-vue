@@ -11,7 +11,8 @@
       <p>{{ $tc("banana", 102) }}</p>
     </div>
     <h4>통화</h4>
-    {{ $n(200, "currency") }}
+
+    {{ $n(3000, "currency", { useGrouping: true }) }}
   </main>
 </template>
 

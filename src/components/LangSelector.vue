@@ -25,10 +25,14 @@ export default {
 
   methods: {
     resolveLang() {
-      let lang = this.getCookie("lang") ?? this.getDefaultLang();
-      return this.$i18n.availableLocales.includes(lang)
-        ? lang
-        : this.$i18n.fallbackLocale;
+      const cookieLang = this.getCookie("lang");
+      const defaultLang = this.getDefaultLang();
+
+      return (
+        this.$i18n.availableLocales.find((v) => v === cookieLang) ??
+        this.$i18n.availableLocales.find((v) => v === defaultLang) ??
+        this.$i18n.fallbackLocale
+      );
     },
 
     getCookie(key) {
@@ -36,7 +40,7 @@ export default {
     },
 
     getDefaultLang() {
-      return navigator.language.split("-")[0];
+      return navigator.language;
     },
 
     setLangInCookie() {

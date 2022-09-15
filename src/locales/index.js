@@ -20,7 +20,7 @@ const pluralizationRules = {
 };
 
 const i18n = createI18n({
-  fallbackLocale: "en",
+  fallbackLocale: "en-US",
   messages,
   pluralizationRules,
   numberFormats,
