@@ -1,34 +1,24 @@
 <template>
-  <select-lang-nav />
-  <div>
-    <h2 class="title">this is L10n!</h2>
-    <div>currency</div>
-    <div>plural</div>
-  </div>
+  <lang-selector />
   <main>
-    <h2>Banana:</h2>
-    <p>{{ $tc("banana", 0) }}</p>
-    <p>{{ $tc("banana", 4) }}</p>
-    <p>{{ $tc("banana", 11) }}</p>
-    <p>{{ $tc("banana", 31) }}</p>
+    <div class="wrapper">
+      <h4>복수화</h4>
+      <p>{{ $tc("banana", 0) }}</p>
+      <p>{{ $tc("banana", 1) }}</p>
+      <p>{{ $tc("banana", 2) }}</p>
+      <p>{{ $tc("banana", 3) }}</p>
+      <p>{{ $tc("banana", 124) }}</p>
+      <p>{{ $tc("banana", 102) }}</p>
+    </div>
+    <h4>통화</h4>
+    {{ $n(200, "currency") }}
   </main>
 </template>
 
 <script>
-import SelectLangNav from "@/components/SelectLangNav.vue";
+import LangSelector from "@/components/LangSelector.vue";
 export default {
-  components: { SelectLangNav },
-  data() {
-    return {
-      example: "",
-    };
-  },
-
-  created() {},
-
-  updated() {},
-
-  methods: {},
+  components: { LangSelector },
 };
 </script>
 
@@ -37,5 +27,8 @@ nav {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+.wrapper {
+  margin: 30px;
 }
 </style>
