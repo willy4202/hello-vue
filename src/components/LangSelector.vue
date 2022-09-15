@@ -29,8 +29,8 @@ export default {
       const defaultLang = this.getDefaultLang();
 
       return (
-        this.$i18n.availableLocales.find((v) => v === cookieLang) ??
-        this.$i18n.availableLocales.find((v) => v === defaultLang) ??
+        this.$i18n.availableLocales.find((lang) => lang == cookieLang) ??
+        this.$i18n.availableLocales.find((lang) => lang == defaultLang) ??
         this.$i18n.fallbackLocale
       );
     },
