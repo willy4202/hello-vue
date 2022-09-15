@@ -4,6 +4,8 @@ const numberFormats = {
       style: "currency",
       currency: "USD",
       currencyDisplay: "symbol",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     },
   },
   "en-GB": {
@@ -11,6 +13,8 @@ const numberFormats = {
       style: "currency",
       currency: "GBP",
       currencyDisplay: "symbol",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     },
   },
   "ru-RU": {
@@ -18,6 +22,8 @@ const numberFormats = {
       style: "currency",
       currency: "RUB",
       currencyDisplay: "symbol",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     },
   },
   "ar-AE": {
@@ -25,6 +31,8 @@ const numberFormats = {
       style: "currency",
       currency: "AED",
       currencyDisplay: "symbol",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     },
   },
 };
