@@ -1,0 +1,5 @@
+{
+  "title": "this is i18n!",
+  "hello": "hello world!",
+  "banana": "no bananas | {n} banana | {n} bananas"
+}
