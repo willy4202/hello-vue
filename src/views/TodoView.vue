@@ -8,11 +8,13 @@
       <template v-slot="slotProps">✔️ {{ slotProps.todo }}</template>
     </todo-lists>
   </main>
+  <mouse-tracker />
 </template>
 <script>
 import TodoHeader from "@/components/Todo/TodoHeader.vue";
 import TodoInput from "@/components/Todo/TodoInput.vue";
 import TodoLists from "@/components/Todo/TodoLists.vue";
+import MouseTracker from "@/components/MouseTracker/MouseTracker.vue";
 
 export default {
   provide: {
@@ -22,6 +24,7 @@ export default {
     TodoHeader,
     TodoInput,
     TodoLists,
+    MouseTracker,
   },
   data() {
     return {};
