@@ -1,7 +1,8 @@
 <template>
   <nav>
     <router-link to="/">I18n</router-link> |
-    <router-link to="/l10n">L10N</router-link>
+    <router-link to="/l10n">L10N</router-link> |
+    <router-link to="/todo">TodoList</router-link>
   </nav>
   <router-view />
 </template>
