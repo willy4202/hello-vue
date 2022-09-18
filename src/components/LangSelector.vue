@@ -24,15 +24,30 @@ export default {
   },
 
   methods: {
-    resolveLang() {
-      const cookieLang = this.getCookie("lang");
-      const defaultLang = this.getDefaultLang();
+    // resolveLang() {
+    //   const cookieLang = this.getCookie("lang");
+    //   const defaultLang = this.getDefaultLang();
 
-      return (
-        this.$i18n.availableLocales.find((lang) => lang == cookieLang) ??
-        this.$i18n.availableLocales.find((lang) => lang == defaultLang) ??
-        this.$i18n.fallbackLocale
-      );
+    //   return (
+    //     this.resolveAvailableLang(cookieLang) ??
+    //     this.resolveAvailableLang(defaultLang) ??
+    //     this.$i18n.fallbackLocale
+    //   );
+    // },
+
+    resolveLang() {
+      if (this.resolveAvailableLang(this.getCookie("lang"))) {
+        return this.getCookie("lang");
+      }
+      if (this.resolveAvailableLang(this.getDefaultLang())) {
+        return this.getDefaultLang();
+      } else {
+        this.$i18n.fallbackLocale;
+      }
+    },
+
+    resolveAvailableLang(lang) {
+      return this.$i18n.availableLocales.find((v) => v == lang);
     },
 
     getCookie(key) {
