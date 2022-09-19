@@ -19,6 +19,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/TodoView.vue"),
   },
+  {
+    path: "/date",
+    name: "date",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/DateTimeView.vue"),
+  },
 ];
 
 const router = createRouter({
