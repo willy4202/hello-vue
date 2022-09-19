@@ -26,13 +26,13 @@ export default {
   methods: {
     resolveLang() {
       return (
-        this.resolveAvailableLang(this.getCookie("lang")) ??
-        this.resolveAvailableLang(this.getDefaultLang()) ??
+        this.findAvailableLang(this.getCookie("lang")) ??
+        this.findAvailableLang(this.getDefaultLang()) ??
         this.$i18n.fallbackLocale
       );
     },
 
-    resolveAvailableLang(lang) {
+    findAvailableLang(lang) {
       return this.$i18n.availableLocales.find((v) => v == lang);
     },
 
