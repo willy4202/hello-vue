@@ -24,26 +24,12 @@ export default {
   },
 
   methods: {
-    // resolveLang() {
-    //   const cookieLang = this.getCookie("lang");
-    //   const defaultLang = this.getDefaultLang();
-
-    //   return (
-    //     this.resolveAvailableLang(cookieLang) ??
-    //     this.resolveAvailableLang(defaultLang) ??
-    //     this.$i18n.fallbackLocale
-    //   );
-    // },
-
     resolveLang() {
-      if (this.resolveAvailableLang(this.getCookie("lang"))) {
-        return this.getCookie("lang");
-      }
-      if (this.resolveAvailableLang(this.getDefaultLang())) {
-        return this.getDefaultLang();
-      } else {
-        this.$i18n.fallbackLocale;
-      }
+      return (
+        this.resolveAvailableLang(this.getCookie("lang")) ??
+        this.resolveAvailableLang(this.getDefaultLang()) ??
+        this.$i18n.fallbackLocale
+      );
     },
 
     resolveAvailableLang(lang) {
