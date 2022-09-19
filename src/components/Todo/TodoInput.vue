@@ -1,6 +1,6 @@
 <template>
   <form>
-    <input type="text" placeholder="뭐할래" />
+    <input type="text" v-model="data" />
     <button @click="addTodo">
       <slot name="button"></slot>
     </button>
@@ -12,7 +12,7 @@ export default {
   components: {},
   data() {
     return {
-      example: "",
+      data: "hi",
     };
   },
   beforeCreate() {},
