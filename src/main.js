@@ -7,6 +7,7 @@ import "bootstrap-vue-3";
 import JQuery from "jquery";
 window.$ = JQuery;
 
+import "bootstrap/dist/js/bootstrap.esm.min.js";
 import "bootstrap/scss/bootstrap.scss";
 import "bootstrap-vue-3";
 import "hooper/dist/hooper.css";
@@ -36,4 +37,5 @@ app
   .use(router)
   .use(i18n)
   .use(VueCookies, { expire: "7d" })
+  .provide("today", new Date().toISOString().split("T")[0])
   .mount("#app");
