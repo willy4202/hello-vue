@@ -1,5 +1,5 @@
 <template>
-  <todo-list />
+  <todo-list data="h" />
 </template>
 <script>
 import { readonly, ref, provide } from "vue";
@@ -7,7 +7,7 @@ import TodoList from "./TodoList.vue";
 
 export default {
   components: { TodoList },
-  name: "",
+
   setup() {
     const todos = ref([]);
     const initTodos = (init_todos) => {
