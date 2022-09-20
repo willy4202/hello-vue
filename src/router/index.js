@@ -11,19 +11,19 @@ const routes = [
     path: "/l10n",
     name: "l10n",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/L10nView.vue"),
+      import(/* webpackChunkName: "l10n" */ "../views/L10nView.vue"),
   },
   {
     path: "/todo",
     name: "todo",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/TodoView.vue"),
+      import(/* webpackChunkName: "todo" */ "../views/TodoView.vue"),
   },
   {
     path: "/date",
     name: "date",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/DateTimeView.vue"),
+      import(/* webpackChunkName: "date" */ "../views/DateTimeView.vue"),
   },
 ];
 
