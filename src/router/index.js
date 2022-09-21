@@ -25,6 +25,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "date" */ "../views/DateTimeView.vue"),
   },
+  {
+    path: "/rtl",
+    name: "rtl",
+    component: () =>
+      import(/* webpackChunkName: "date" */ "../views/RtlView.vue"),
+  },
 ];
 
 const router = createRouter({

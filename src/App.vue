@@ -3,7 +3,8 @@
     <router-link to="/">I18n</router-link> |
     <router-link to="/l10n">L10N</router-link> |
     <router-link to="/date">DateTime</router-link> |
-    <router-link to="/todo">TodoList</router-link>
+    <router-link to="/rtl">rtl</router-link> |
+    <router-link to="/todo">TodoList</router-link> |
   </nav>
   <router-view />
 </template>
