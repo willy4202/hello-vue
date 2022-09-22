@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h2>HTML</h2>
+    <h2>Welcome! HTML dir</h2>
     <h4>current dir => {{ dirState }}</h4>
   </header>
   <article>
