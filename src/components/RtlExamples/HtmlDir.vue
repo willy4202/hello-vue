@@ -34,6 +34,7 @@
       </div>
     </section>
     <section>
+      ㅊ
       <h4>Button Box</h4>
       <div class="button-wrapper" :dir="dirState">
         <button>button1</button>
@@ -90,11 +91,9 @@ export default {
     const dirState = ref("ltr");
 
     const changeDir = () => {
-      if (dirState.value === "ltr") {
-        dirState.value = "rtl";
-      } else {
-        dirState.value = "ltr";
-      }
+      dirState.value === "ltr"
+        ? (dirState.value = "rtl")
+        : (dirState.value = "ltr");
     };
 
     const List = reactive(["안녕하세요", "리스트를", "이용한 ", "RTl입니다."]);

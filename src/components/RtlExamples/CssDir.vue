@@ -22,7 +22,9 @@
     <section>
       <h4>bullet List</h4>
       <ul class="bullet-wrapper" :style="changeProperty(direction)">
-        <li v-for="bullet in list" :key="bullet">{{ bullet }}</li>
+        <li v-for="bullet in list" :key="bullet">
+          {{ bullet }}
+        </li>
       </ul>
     </section>
   </article>
@@ -36,8 +38,8 @@ export default {
       unicodeProperty: [
         "normal",
         "embed",
-        "isolate",
         "bidi-override",
+        "isolate",
         "isolate-override",
         "plaintext",
       ],
@@ -48,11 +50,9 @@ export default {
 
   methods: {
     changeDirection: function () {
-      if (this.direction === "ltr") {
-        this.direction = "rtl";
-      } else {
-        this.direction = "ltr";
-      }
+      this.direction === "ltr"
+        ? (this.direction = "rtl")
+        : (this.direction = "ltr");
     },
     changeProperty: function (direction) {
       return { direction, unicodeBidi: this.selectedProperty };
