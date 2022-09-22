@@ -4,7 +4,9 @@
     <h4>current dir => {{ dirState }}</h4>
   </header>
   <article>
-    <button class="fixed-btn" @click="changeDir">changeDir</button>
+    <button class="fixed-btn" @click="changeDir">
+      current dir = {{ dirState }}
+    </button>
     <section>
       <h4>bullet List</h4>
       <ul :dir="dirState">
@@ -56,6 +58,27 @@
       <div class="input-wrapper" :dir="dirState">
         <input v-for="e in 3" :key="e" :placeholder="e" class="input-element" />
       </div>
+    </section>
+    <section class="table-wrapper">
+      <table :dir="dirState">
+        <thead>
+          <tr>
+            <th>header1</th>
+            <th>header2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="textarea-wrapper">
+      <textarea :dir="dirState" rows="5" cols="33">
+        This statement is used for test This statement is used for test This statement is used for test
+      </textarea>
     </section>
   </article>
 </template>
@@ -147,5 +170,15 @@ section {
   .input-element {
     width: 20%;
   }
+}
+
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.textarea-wrapper {
+  display: flex;
+  justify-content: center;
 }
 </style>
