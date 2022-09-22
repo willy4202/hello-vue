@@ -112,25 +112,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header {
-  text-align: center;
-}
-article {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-section {
-  border: 1px solid black;
-  width: 500px;
-  padding: 20px 0;
-
-  h4 {
-    text-align: center;
-  }
-}
-
 .fixed-btn {
   top: 50px;
   right: 50px;

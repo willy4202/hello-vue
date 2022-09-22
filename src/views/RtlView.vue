@@ -1,7 +1,7 @@
 <template>
-  <html-dir />
-  <!-- <css-dir />
-  <rtl-css /> -->
+  <!-- <html-dir /> -->
+  <css-dir />
+  <!-- <rtl-css /> -->
 </template>
 <script>
 import RtlCss from "@/components/RtlExamples/RtlCss.vue";
@@ -18,3 +18,24 @@ export default {
   methods: {},
 };
 </script>
+
+<style lang="scss">
+header {
+  text-align: center;
+}
+article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+section {
+  border: 1px solid black;
+  width: 500px;
+  padding: 20px 0;
+
+  h4 {
+    text-align: center;
+  }
+}
+</style>
