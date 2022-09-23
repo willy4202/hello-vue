@@ -9,9 +9,9 @@
       <p>{{ $tc("banana", 3) }}</p>
       <p>{{ $tc("banana", 124) }}</p>
       <p>{{ $tc("banana", 102) }}</p>
+      <h4>통화</h4>
+      {{ $n(3000, "currency", { useGrouping: true }) }}
     </div>
-    <h4>통화</h4>
-    {{ $n(3000, "currency", { useGrouping: true }) }}
   </main>
 </template>
 
@@ -29,6 +29,7 @@ nav {
   flex-direction: column;
 }
 .wrapper {
+  text-align: center;
   margin: 30px;
 }
 </style>

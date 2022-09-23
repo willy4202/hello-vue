@@ -20,3 +20,9 @@ export default {
   setup() {},
 };
 </script>
+
+<style scoped>
+main {
+  text-align: center;
+}
+</style>
