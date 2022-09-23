@@ -1,45 +1,97 @@
 <template>
-  <main>
-    <h2>RTL Examples</h2>
-    <h4>Current direction: {{ dir }}</h4>
-    <form>
-      <button @click="changeDir">change dir</button>
-    </form>
-    <div className="float">
-      I float right if we are ltr, and left if we are rtl
-    </div>
-  </main>
+  <header>
+    <h2>RTLCss</h2>
+    <button @click="changeDir">
+      current dir is {{ isLtr ? "ltr" : "rtl" }}
+    </button>
+  </header>
+  <article class="rtlcss-sample">
+    <section>
+      <h4>bullet List</h4>
+      <ul>
+        <li v-for="bullet in List" :key="bullet">{{ bullet }}</li>
+      </ul>
+    </section>
+    <section>
+      <h4>Number List</h4>
+      <ol>
+        <li v-for="number in List" :key="number">{{ number }}</li>
+      </ol>
+    </section>
+    <section>
+      <h4>Div Box</h4>
+      <div class="div-wrapper">
+        <div>left</div>
+        <div>right</div>
+      </div>
+    </section>
+    <section>
+      <h4>Image Text Box</h4>
+      <div class="div-wrapper">
+        <img :src="himediLogo" alt="image-example" />
+        <div>himedi</div>
+      </div>
+    </section>
+  </article>
 </template>
-
 <script>
-import { ref, reactive, toRefs } from "@vue/reactivity";
 export default {
-  setup() {
-    const state = reactive({
-      hi: "안녕하세요? ",
-      rtl: "rtl.vue ",
-      test: "테스트입니다. ",
-    });
-    const dir = ref("ltr");
-
-    const changeDir = () => {
-      console.log("hi");
-    };
-
+  data() {
     return {
-      ...toRefs(state),
-      dir,
-      changeDir,
+      List: ["안녕하세요", "리스트를", "이용한 ", "RTl입니다."],
+      himediLogo: require("@/assets/himediLogo.png"),
+      isLtr: true,
     };
   },
 
-  methods: {},
+  created() {
+    this.setStyleSheet("date.rtl.css");
+  },
+
+  updated() {
+    if (this.isLtr) {
+      document
+        .querySelectorAll("link[rel=stylesheet]")
+        .forEach((e) => e.remove());
+      this.setStyleSheet("date.rtl.css");
+    } else {
+      document
+        .querySelectorAll("link[rel=stylesheet]")
+        .forEach((e) => e.remove());
+      this.setStyleSheet("date.css");
+    }
+  },
+
+  methods: {
+    changeDir() {
+      this.isLtr ? (this.isLtr = false) : (this.isLtr = true);
+    },
+
+    setStyleSheet(path) {
+      let link = document.createElement("link");
+      link.setAttribute("rel", "stylesheet");
+      link.type = "text/css";
+      link.href = "/css/" + path;
+      console.log(link);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-div {
-  margin-top: 60px;
-  float: right;
+.rtlcss-sample {
+}
+
+.div-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+
+.div-wrapper {
+  align-items: center;
+  img {
+    width: 200px;
+  }
 }
 </style>

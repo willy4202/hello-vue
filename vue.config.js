@@ -5,7 +5,7 @@ module.exports = defineConfig({
   css: {
     extract: {
       filename: "css/[name].css",
-      chunkFilename: "css/[name].[hash].css",
+      chunkFilename: "css/[name].css",
     },
   },
   configureWebpack: {

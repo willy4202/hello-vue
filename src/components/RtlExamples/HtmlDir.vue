@@ -1,67 +1,67 @@
 <template>
   <header>
     <h2>Welcome! HTML dir</h2>
-    <h4>current dir => {{ dirState }}</h4>
+    <h4>current dir => {{ direction }}</h4>
   </header>
   <article>
     <button class="fixed-btn" @click="changeDir">
-      current dir = {{ dirState }}
+      html dir = {{ direction }}
     </button>
     <section>
       <h4>bullet List</h4>
-      <ul :dir="dirState">
+      <ul :dir="direction">
         <li v-for="bullet in List" :key="bullet">{{ bullet }}</li>
       </ul>
     </section>
     <section>
       <h4>Number List</h4>
-      <ol :dir="dirState">
+      <ol :dir="direction">
         <li v-for="number in List" :key="number">{{ number }}</li>
       </ol>
     </section>
     <section>
       <h4>Div Box</h4>
-      <div :dir="dirState" class="div-wrapper">
+      <div :dir="direction" class="div-wrapper">
         <div>left</div>
         <div>right</div>
       </div>
     </section>
     <section>
       <h4>Image Text Box</h4>
-      <div :dir="dirState" class="div-wrapper">
+      <div :dir="direction" class="div-wrapper">
         <img :src="himediLogo" alt="image-example" />
         <div>himedi</div>
       </div>
     </section>
     <section>
-      ㅊ
-      <h4>Button Box</h4>
-      <div class="button-wrapper" :dir="dirState">
-        <button>button1</button>
-        <button>button2</button>
-      </div>
-    </section>
-    <section>
       <h4>DateTime Box</h4>
-      <div class="button-wrapper" :dir="dirState">
+      <div class="button-wrapper" :dir="direction">
         <span>DateTime :</span>
         <span>{{ $d(new Date(), "dateTime") }}</span>
       </div>
     </section>
     <section>
+      <h4>Button Box</h4>
+      <div class="button-wrapper" :dir="direction">
+        <button>button1</button>
+        <button>button2</button>
+      </div>
+    </section>
+
+    <section>
       <h4>number Box</h4>
-      <div class="row-div-wrapper" :dir="dirState">
+      <div class="row-div-wrapper" :dir="direction">
         <div v-for="num in 5" :key="num">{{ num }}</div>
       </div>
     </section>
     <section>
       <h4>Input Box</h4>
-      <div class="input-wrapper" :dir="dirState">
+      <div class="input-wrapper" :dir="direction">
         <input v-for="e in 3" :key="e" :placeholder="e" class="input-element" />
       </div>
     </section>
     <section class="table-wrapper">
-      <table :dir="dirState">
+      <table :dir="direction">
         <thead>
           <tr>
             <th>header1</th>
@@ -77,7 +77,7 @@
       </table>
     </section>
     <section class="textarea-wrapper">
-      <textarea :dir="dirState" rows="5" cols="33">
+      <textarea :dir="direction" rows="5" cols="33">
         This statement is used for test This statement is used for test This statement is used for test
       </textarea>
     </section>
@@ -88,12 +88,12 @@
 import { reactive, ref } from "@vue/reactivity";
 export default {
   setup() {
-    const dirState = ref("ltr");
+    const direction = ref("ltr");
 
     const changeDir = () => {
-      dirState.value === "ltr"
-        ? (dirState.value = "rtl")
-        : (dirState.value = "ltr");
+      direction.value === "ltr"
+        ? (direction.value = "rtl")
+        : (direction.value = "ltr");
     };
 
     const List = reactive(["안녕하세요", "리스트를", "이용한 ", "RTl입니다."]);
@@ -101,7 +101,7 @@ export default {
     const himediLogo = require("@/assets/himediLogo.png");
 
     return {
-      dirState,
+      direction,
       changeDir,
       List,
       himediLogo,
@@ -112,7 +112,7 @@ export default {
 
 <style lang="scss" scoped>
 .fixed-btn {
-  top: 50px;
+  top: 30px;
   right: 50px;
   position: fixed;
 }
