@@ -25,9 +25,6 @@ module.exports = defineConfig({
           },
         ],
       }),
-      new webpack.optimize.LimitChunkCountPlugin({
-        maxChunks: 1,
-      }),
     ],
   },
 });
