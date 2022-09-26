@@ -43,20 +43,20 @@
       </section>
       <section>
         <h4>Button Box</h4>
-        <div class="button-wrapper" :dir="direction">
+        <div class="button-wrapper">
           <button>button1</button>
           <button>button2</button>
         </div>
       </section>
       <section>
         <h4>number Box</h4>
-        <div class="row-div-wrapper" :dir="direction">
+        <div class="row-div-wrapper">
           <div v-for="num in 5" :key="num">{{ num }}</div>
         </div>
       </section>
       <section>
         <h4>Input Box</h4>
-        <div class="input-wrapper" :dir="direction">
+        <div class="input-wrapper">
           <input
             v-for="e in 3"
             :key="e"
@@ -66,7 +66,7 @@
         </div>
       </section>
       <section class="table-wrapper">
-        <table :dir="direction">
+        <table>
           <thead>
             <tr>
               <th>header1</th>
@@ -98,19 +98,15 @@ export default {
 
   updated() {
     if (this.isLtr === "rtl") {
-      document
-        .querySelectorAll("link[rel=stylesheet]")
-        .forEach((e) => e.parentNode.removeChild(e));
-      this.setStyleSheet("date.rtl.css");
-      this.setStyleSheet("app.rtl.css");
-      this.setStyleSheet("chunk-vendors.rtl.css");
+      document.querySelectorAll("link[rel=stylesheet]").forEach((e) => {
+        e.remove();
+        this.addStyleSheet(e.href.replace(".css", ".rtl.css"));
+      });
     } else {
-      document
-        .querySelectorAll("link[rel=stylesheet]")
-        .forEach((e) => e.parentNode.removeChild(e));
-      this.setStyleSheet("date.css");
-      this.setStyleSheet("app.css");
-      this.setStyleSheet("chunk-vendors.css");
+      document.querySelectorAll("link[rel=stylesheet]").forEach((e) => {
+        e.remove();
+        this.addStyleSheet(e.href.replace(".rtl.css", ".css"));
+      });
     }
   },
 
@@ -119,11 +115,11 @@ export default {
       this.isLtr == "ltr" ? (this.isLtr = "rtl") : (this.isLtr = "ltr");
     },
 
-    setStyleSheet(path) {
+    addStyleSheet(path) {
       let link = document.createElement("link");
       link.setAttribute("rel", "stylesheet");
       link.type = "text/css";
-      link.href = "/css/" + path;
+      link.href = path;
       document.head.appendChild(link);
     },
   },

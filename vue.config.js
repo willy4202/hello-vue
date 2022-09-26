@@ -1,11 +1,12 @@
 const { defineConfig } = require("@vue/cli-service");
 const WebpackRtlPlugin = require("webpack-rtl-plugin");
+const webpack = require("webpack");
 
 module.exports = defineConfig({
   css: {
     extract: {
-      filename: "css/[name].css",
-      chunkFilename: "css/[name].css",
+      filename: "css/[name].[contenthash].css",
+      chunkFilename: "css/[name].[contenthash].css",
     },
   },
   configureWebpack: {
@@ -23,6 +24,9 @@ module.exports = defineConfig({
             },
           },
         ],
+      }),
+      new webpack.optimize.LimitChunkCountPlugin({
+        maxChunks: 1,
       }),
     ],
   },
