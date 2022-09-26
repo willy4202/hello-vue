@@ -1,15 +1,15 @@
 <template>
-  <html-dir />
-  <css-dir />
-  <rtl-css />
+  <html-dir-example />
+  <css-dir-example />
+  <rtl-example />
 </template>
 <script>
-import RtlCss from "@/components/RtlExamples/RtlCss.vue";
-import HtmlDir from "@/components/RtlExamples/HtmlDir.vue";
-import CssDir from "@/components/RtlExamples/CssDir.vue";
+import RtlExample from "@/components/RtlExamples/RtlExample.vue";
+import HtmlDirExample from "@/components/RtlExamples/HtmlDirExample.vue";
+import CssDirExample from "@/components/RtlExamples/CssDirExample.vue";
 
 export default {
-  components: { RtlCss, HtmlDir, CssDir },
+  components: { RtlExample, HtmlDirExample, CssDirExample },
 };
 </script>
 
