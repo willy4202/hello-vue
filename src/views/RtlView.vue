@@ -1,7 +1,7 @@
 <template>
-  <html-dir-example />
-  <css-dir-example />
-  <rtl-example />
+  <html-dir-example>HTML dir</html-dir-example>
+  <css-dir-example>CSS dir</css-dir-example>
+  <rtl-example>RTLCSS</rtl-example>
 </template>
 <script>
 import RtlExample from "@/components/RtlExamples/RtlExample.vue";

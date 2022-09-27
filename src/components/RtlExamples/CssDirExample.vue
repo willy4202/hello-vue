@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h2>Welcome! CSS dir</h2>
+    <h2>Welcome! <slot></slot></h2>
     <button class="fixed-btn" @click="changeDir">
       css dir = {{ currentDir }}
     </button>
@@ -57,13 +57,9 @@
     </section>
     <section>
       <h4>Image Text Box</h4>
-      <div class="img-wrapper">
-        <img
-          :style="directionStyle(currentDir)"
-          :src="himediLogo"
-          alt="image-example"
-        />
-        <div :style="directionStyle(currentDir)">himedi</div>
+      <div class="img-wrapper" :style="directionStyle(currentDir)">
+        <img :src="himediLogo" alt="image-example" />
+        <span>himedi</span>
       </div>
     </section>
     <section>

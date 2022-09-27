@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h2>RTLCss</h2>
+    <h2>Welcome! <slot></slot></h2>
     <button class="fixed-btn" @click="changeDir">
       RTLCSS = {{ currentDir }}
     </button>

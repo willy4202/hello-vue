@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h2>Welcome! HTML dir</h2>
+    <h2>Welcome! <slot></slot></h2>
     <h4>current dir => {{ currentDir }}</h4>
   </header>
   <article>
@@ -47,7 +47,6 @@
         <button>button2</button>
       </div>
     </section>
-
     <section>
       <h4>number Box</h4>
       <div class="row-div-wrapper" :dir="currentDir">
@@ -85,10 +84,11 @@
 </template>
 
 <script>
-import { reactive, ref } from "@vue/reactivity";
+import { isRef, reactive, ref } from "@vue/reactivity";
 export default {
   setup() {
     const currentDir = ref("ltr");
+    console.log(currentDir);
     const changeDir = () => {
       currentDir.value === "ltr"
         ? (currentDir.value = "rtl")
