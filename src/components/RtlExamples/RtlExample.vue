@@ -178,7 +178,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   & > * {
-    border: 1px solid red;
+    border: 1px solid $signature-color;
     padding: 1rem;
   }
 }

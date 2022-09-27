@@ -97,6 +97,7 @@ export default {
 
     const List = reactive(["안녕하세요", "리스트를", "이용한 ", "RTl입니다."]);
     const himediLogo = require("@/assets/himediLogo.png");
+
     return {
       List,
       himediLogo,
@@ -135,7 +136,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   & > * {
-    border: 1px solid red;
+    border: 1px solid $signature-color;
     padding: 1rem;
   }
 }

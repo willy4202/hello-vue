@@ -3,6 +3,14 @@ const WebpackRtlPlugin = require("webpack-rtl-plugin");
 
 module.exports = defineConfig({
   css: {
+    loaderOptions: {
+      sass: {
+        additionalData: `
+        @import "@/assets/scss/_variable.scss";
+        @import "@/assets/scss/_button.scss";
+        `,
+      },
+    },
     extract: {
       filename: "css/[name].[contenthash].css",
       chunkFilename: "css/[name].[contenthash].css",
