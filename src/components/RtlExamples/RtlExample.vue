@@ -1,7 +1,9 @@
 <template>
   <header>
     <h2>RTLCss</h2>
-    <button class="fixed-btn" @click="changeDir">RTLCSS = {{ isLtr }}</button>
+    <button class="fixed-btn" @click="changeDir">
+      RTLCSS = {{ currentDir }}
+    </button>
   </header>
   <article>
     <main class="rtl-wrapper">
@@ -90,29 +92,19 @@ export default {
     return {
       List: ["안녕하세요", "리스트를", "이용한 ", "RTL입니다."],
       himediLogo: require("@/assets/himediLogo.png"),
-      isLtr: "ltr",
+      currentDir: "ltr",
     };
   },
 
-  created() {},
-
   updated() {
-    if (this.isLtr === "rtl") {
-      document.querySelectorAll("link[rel=stylesheet]").forEach((e) => {
-        e.remove();
-        this.addStyleSheet(e.href.replace(".css", ".rtl.css"));
-      });
-    } else {
-      document.querySelectorAll("link[rel=stylesheet]").forEach((e) => {
-        e.remove();
-        this.addStyleSheet(e.href.replace(".rtl.css", ".css"));
-      });
-    }
+    this.swapStlyeSheetDir(this.currentDir);
   },
 
   methods: {
     changeDir() {
-      this.isLtr == "ltr" ? (this.isLtr = "rtl") : (this.isLtr = "ltr");
+      this.currentDir === "ltr"
+        ? (this.currentDir = "rtl")
+        : (this.currentDir = "ltr");
     },
 
     addStyleSheet(path) {
@@ -121,6 +113,20 @@ export default {
       link.type = "text/css";
       link.href = path;
       document.head.appendChild(link);
+    },
+
+    swapStlyeSheetDir(dir) {
+      if (dir === "rtl") {
+        document.querySelectorAll("link[rel=stylesheet]").forEach((e) => {
+          e.remove();
+          this.addStyleSheet(e.href.replace(".css", ".rtl.css"));
+        });
+      } else {
+        document.querySelectorAll("link[rel=stylesheet]").forEach((e) => {
+          e.remove();
+          this.addStyleSheet(e.href.replace(".rtl.css", ".css"));
+        });
+      }
     },
   },
 };

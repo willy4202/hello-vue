@@ -1,6 +1,5 @@
 const { defineConfig } = require("@vue/cli-service");
 const WebpackRtlPlugin = require("webpack-rtl-plugin");
-const webpack = require("webpack");
 
 module.exports = defineConfig({
   css: {
