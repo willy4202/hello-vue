@@ -123,6 +123,11 @@
         </tbody>
       </table>
     </section>
+    <section class="textarea-wrapper">
+      <textarea :style="directionStyle(currentDir)" rows="5" cols="33">
+        This statement is used for test This statement is used for test This statement is used for test
+      </textarea>
+    </section>
   </article>
 </template>
 
@@ -208,6 +213,10 @@ export default {
 }
 
 .table-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.textarea-wrapper {
   display: flex;
   justify-content: center;
 }

@@ -83,6 +83,12 @@
           </tbody>
         </table>
       </section>
+      <section class="textarea-wrapper">
+        <textarea rows="5" cols="33">
+        This statement is used for test This statement is used for test This statement is used for test
+      </textarea
+        >
+      </section>
     </main>
   </article>
 </template>
@@ -185,6 +191,11 @@ export default {
   }
 }
 .table-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.textarea-wrapper {
   display: flex;
   justify-content: center;
 }
