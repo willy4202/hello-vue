@@ -97,7 +97,7 @@ export default {
   },
 
   updated() {
-    this.swapStlyeSheetDir(this.currentDir);
+    this.swapStlyeSheet(this.currentDir);
   },
 
   methods: {
@@ -107,15 +107,7 @@ export default {
         : (this.currentDir = "ltr");
     },
 
-    addStyleSheet(path) {
-      let link = document.createElement("link");
-      link.setAttribute("rel", "stylesheet");
-      link.type = "text/css";
-      link.href = path;
-      document.head.appendChild(link);
-    },
-
-    swapStlyeSheetDir(dir) {
+    swapStlyeSheet(dir) {
       if (dir === "rtl") {
         document.querySelectorAll("link[rel=stylesheet]").forEach((e) => {
           e.remove();
@@ -127,6 +119,14 @@ export default {
           this.addStyleSheet(e.href.replace(".rtl.css", ".css"));
         });
       }
+    },
+
+    addStyleSheet(path) {
+      let link = document.createElement("link");
+      link.setAttribute("rel", "stylesheet");
+      link.type = "text/css";
+      link.href = path;
+      document.head.appendChild(link);
     },
   },
 };
