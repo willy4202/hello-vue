@@ -1,12 +1,9 @@
-<template>
-  <todo-list data="h" />
-</template>
+<template></template>
 <script>
 import { readonly, ref, provide } from "vue";
-import TodoList from "./TodoList.vue";
 
 export default {
-  components: { TodoList },
+  components: {},
 
   setup() {
     const todos = ref([]);

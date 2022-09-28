@@ -29,7 +29,6 @@
 import { ref, inject, computed, watch } from "vue";
 export default {
   name: "TodoListMenu",
-  emits: ["change-filter"],
   setup(props, context) {
     const filters = inject("filters");
     const filter = ref(0);
@@ -42,6 +41,9 @@ export default {
           context.emits("change-filter", filter);
         };
     });
+
+    context.emit("change-filter", filter);
+
     return {
       state,
       filters,
