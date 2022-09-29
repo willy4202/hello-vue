@@ -7,15 +7,12 @@
       <button @click="data.method">{{ data.name }}</button>
     </section>
   </article>
-  <section>
-    <h3>test Data</h3>
-    <button @click="interceptGetData">test</button>
-  </section>
-
   <h2>with Proxy</h2>
+  <article></article>
 </template>
 <script>
 import apiController from "@/utils/apiController.js";
+const URL = "/route?query=1&param=2&form=form";
 
 export default {
   name: "AxiosView",
@@ -58,84 +55,39 @@ export default {
   },
 
   methods: {
-    getData: function () {
-      this.$axios
-        .get(
-          "https://dev.gateway.himedi.com/test/route%20param?query=query%20param",
-          {
-            "Time-Zone": new Date().getTimezoneOffset(),
-          }
-        )
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    getData() {
+      return apiController({
+        url: URL,
+        method: "get",
+      });
     },
 
-    postData: function () {
-      this.$axios
-        .post(
-          "https://dev.gateway.himedi.com/test/route?query=1&param=2&form=form",
-          {
-            "Time-Zone": new Date().getTimezoneOffset(),
-          }
-        )
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    postData() {
+      return apiController({
+        url: URL,
+        method: "post",
+      });
     },
 
-    putData: function () {
-      this.$axios
-        .put(
-          "https://dev.gateway.himedi.com/test/route?query=1&param=2&form=form",
-          {
-            "Time-Zone": new Date().getTimezoneOffset(),
-          }
-        )
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    putData() {
+      return apiController({
+        url: URL,
+        method: "put",
+      });
     },
 
-    patchData: function () {
-      this.$axios
-        .patch(
-          "https://dev.gateway.himedi.com/test/route?query=1&param=2&form=form",
-          {
-            "Time-Zone": new Date().getTimezoneOffset(),
-          }
-        )
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    patchData() {
+      return apiController({
+        url: URL,
+        method: "patch",
+      });
     },
 
-    deleteData: function () {
-      this.$axios
-        .delete(
-          "https://dev.gateway.himedi.com/test/route?query=1&param=2&form=form",
-          {
-            "Time-Zone": new Date().getTimezoneOffset(),
-          }
-        )
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    deleteData() {
+      return apiController({
+        url: URL,
+        method: "delete",
+      });
     },
   },
 };
