@@ -29,7 +29,13 @@ const routes = [
     path: "/rtl",
     name: "rtl",
     component: () =>
-      import(/* webpackChunkName: "date" */ "../views/RtlView.vue"),
+      import(/* webpackChunkName: "rtl" */ "../views/RtlView.vue"),
+  },
+  {
+    path: "/axios",
+    name: "axios",
+    component: () =>
+      import(/* webpackChunkName: "axios" */ "../views/AxiosView.vue"),
   },
 ];
 

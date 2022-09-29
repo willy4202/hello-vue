@@ -21,8 +21,11 @@ import YouTube from "vue3-youtube";
 import VueScrollPicker from "vue3-scroll-picker";
 import VueCookies from "vue-cookies";
 import i18n from "./locales";
+import axios from "axios";
 
 const app = createApp(App);
+
+app.config.globalProperties.$axios = axios;
 
 app
   .component("file-upload", VueUploadComponent)
@@ -37,5 +40,6 @@ app
   .use(router)
   .use(i18n)
   .use(VueCookies, { expire: "7d" })
+
   .provide("today", new Date().toISOString().split("T")[0])
   .mount("#app");
