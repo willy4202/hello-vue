@@ -22,11 +22,11 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   function (res) {
-    console.log("response res", res.data);
+    console.log("response", res.data);
     return res;
   },
   function (err) {
-    console.log("response err", err);
+    console.log("response", err);
     return Promise.reject(err);
   }
 );

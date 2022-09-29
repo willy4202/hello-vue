@@ -1,18 +1,23 @@
 <template>
-  <h2>without Proxy</h2>
-
+  <h2>in dev mode</h2>
+  <h3>CORS setting is 'true'</h3>
+  <h3>without Proxy</h3>
   <article>
     <section v-for="data in btnData" :key="data">
-      <h3>{{ data.name }} Data</h3>
+      <h4>{{ data.name }} Data</h4>
       <button @click="data.method">{{ data.name }}</button>
     </section>
   </article>
-  <h2>with Proxy</h2>
-  <article></article>
+  <h3>with Proxy</h3>
+  <article>
+    <button @click="proxyGetData">hi</button>
+  </article>
 </template>
 <script>
 import apiController from "@/utils/apiController.js";
-const URL = "/route?query=1&param=2&form=form";
+const URL = "/route?query=1&param=2&form=3";
+const HIMEDI_CORS_SETTED_API =
+  "https://dev.gateway.himedi.com/test/route?query=1&param=2&form=3";
 
 export default {
   name: "AxiosView",
@@ -89,12 +94,20 @@ export default {
         method: "delete",
       });
     },
+
+    proxyGetData() {
+      this.$axios
+        .get(`${HIMEDI_CORS_SETTED_API}/api`)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    },
   },
 };
 </script>
 
 <style scoped>
-h2 {
+h2,
+h3 {
   text-align: center;
   margin: 30px;
 }
