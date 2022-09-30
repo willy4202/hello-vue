@@ -10,18 +10,16 @@
   </article>
   <h3>with Proxy</h3>
   <article>
-    <button @click="proxyGetData">hi</button>
-  </article>
-  <h3>use Proxy target</h3>
-  <article>
-    <button @click="testProxyGetData">hi</button>
+    <sectio v-for="data in proxyBtnData" :key="data">
+      <h4>{{ data.name }}Data</h4>
+      <button @click="data.method">{{ data.name }}</button>
+    </sectio>
   </article>
 </template>
 <script>
 import apiController from "@/utils/apiController.js";
 const URL = "/test/route?query=1&param=2&form=3";
-const HIMEDI_CORS_SETTED_API =
-  "https://dev.gateway.himedi.com/test/route?query=1&param=2&form=3";
+const PROXY_URL = "/api" + URL;
 
 export default {
   name: "AxiosView",
@@ -57,6 +55,38 @@ export default {
           name: "delete",
           method: () => {
             this.deleteData();
+          },
+        },
+      ],
+      proxyBtnData: [
+        {
+          name: "get",
+          method: () => {
+            this.proxyGetData();
+          },
+        },
+        {
+          name: "post",
+          method: () => {
+            this.proxyPostData();
+          },
+        },
+        {
+          name: "put",
+          method: () => {
+            this.proxyPutData();
+          },
+        },
+        {
+          name: "patch",
+          method: () => {
+            this.proxyPatchData();
+          },
+        },
+        {
+          name: "delete",
+          method: () => {
+            this.proxyDeleteData();
           },
         },
       ],
@@ -101,15 +131,32 @@ export default {
 
     proxyGetData() {
       this.$axios
-        .get(HIMEDI_CORS_SETTED_API)
+        .get(PROXY_URL)
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err));
     },
-
-    testProxyGetData() {
+    proxyPostData() {
       this.$axios
-        .get("/api" + URL)
-        .then((res) => console.log(res))
+        .post(PROXY_URL)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+    },
+    proxyPutData() {
+      this.$axios
+        .put(PROXY_URL)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+    },
+    proxyPatchData() {
+      this.$axios
+        .patch(PROXY_URL)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+    },
+    proxyDeleteData() {
+      this.$axios
+        .delete(PROXY_URL)
+        .then((res) => console.log(res.data))
         .catch((err) => console.log(err));
     },
   },

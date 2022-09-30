@@ -1,6 +1,6 @@
 import axios from "axios";
-const BASE_URL = "/api";
-// const BASE_URL = "https://dev.gateway.himedi.com";
+// const BASE_URL = "/api";
+const BASE_URL = "https://dev.gateway.himedi.com";
 const timezoneOffset = new Date().getTimezoneOffset();
 
 const instance = axios.create({
