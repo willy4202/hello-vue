@@ -2,6 +2,16 @@ const { defineConfig } = require("@vue/cli-service");
 const WebpackRtlPlugin = require("webpack-rtl-plugin");
 
 module.exports = defineConfig({
+  devServer: {
+    proxy: {
+      "/api": {
+        pathRewrite: {
+          "/api": "",
+        },
+        target: "https://dev.gateway.himedi.com",
+      },
+    },
+  },
   css: {
     loaderOptions: {
       sass: {

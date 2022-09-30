@@ -12,10 +12,14 @@
   <article>
     <button @click="proxyGetData">hi</button>
   </article>
+  <h3>use Proxy target</h3>
+  <article>
+    <button @click="testProxyGetData">hi</button>
+  </article>
 </template>
 <script>
 import apiController from "@/utils/apiController.js";
-const URL = "/route?query=1&param=2&form=3";
+const URL = "/test/route?query=1&param=2&form=3";
 const HIMEDI_CORS_SETTED_API =
   "https://dev.gateway.himedi.com/test/route?query=1&param=2&form=3";
 
@@ -97,7 +101,14 @@ export default {
 
     proxyGetData() {
       this.$axios
-        .get(`${HIMEDI_CORS_SETTED_API}/api`)
+        .get(HIMEDI_CORS_SETTED_API)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+    },
+
+    testProxyGetData() {
+      this.$axios
+        .get("/api" + URL)
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     },
