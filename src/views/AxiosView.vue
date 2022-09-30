@@ -10,10 +10,10 @@
   </article>
   <h3>with Proxy</h3>
   <article>
-    <sectio v-for="data in proxyBtnData" :key="data">
+    <section v-for="data in proxyBtnData" :key="data">
       <h4>{{ data.name }}Data</h4>
       <button @click="data.method">{{ data.name }}</button>
-    </sectio>
+    </section>
   </article>
 </template>
 <script>
@@ -159,6 +159,10 @@ export default {
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err));
     },
+  },
+
+  created() {
+    console.log(process.env.NODE_ENV);
   },
 };
 </script>
