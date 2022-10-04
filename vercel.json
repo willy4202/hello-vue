@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://dev.gateway.himedi.com/:path*"
+    },
+    {
+      "source": "/api/:path*/",
+      "destination": "https://dev.gateway.himedi.com/:path*/"
+    }
+  ]
+}
