@@ -1,5 +1,5 @@
 <template>
-  <h2>in dev mode</h2>
+  <h2>now {{ currentMode }} mode</h2>
   <h3>CORS setting is 'true'</h3>
   <h3>without Proxy</h3>
   <article>
@@ -25,6 +25,8 @@ export default {
   components: {},
   data() {
     return {
+      currentMode:
+        process.env.NODE_ENV === "development" ? "dev" : "production",
       btnData: [
         {
           name: "get",
