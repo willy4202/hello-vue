@@ -1,6 +1,6 @@
 <template>
   <h2>now {{ currentMode }} mode</h2>
-  <h3>CORS setting is 'true'</h3>
+  <h3>server CORS setting is 'true'</h3>
   <h3>without Proxy</h3>
   <article>
     <section v-for="data in btnData" :key="data">

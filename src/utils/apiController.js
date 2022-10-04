@@ -12,21 +12,21 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(
-  function (config) {
+  (config) => {
     return config;
   },
-  function (err) {
+  (err) => {
     console.log("request err", err);
     return Promise.reject(err);
   }
 );
 
 instance.interceptors.response.use(
-  function (res) {
+  (res) => {
     console.log("response", res.data);
     return res;
   },
-  function (err) {
+  (err) => {
     console.log("response", err);
     return Promise.reject(err);
   }
@@ -43,21 +43,21 @@ const proxyInstance = axios.create({
 });
 
 proxyInstance.interceptors.request.use(
-  function (config) {
+  (config) => {
     return config;
   },
-  function (err) {
+  (err) => {
     console.log("request err", err);
     return Promise.reject(err);
   }
 );
 
 proxyInstance.interceptors.response.use(
-  function (res) {
+  (res) => {
     console.log("response", res.data);
     return res;
   },
-  function (err) {
+  (err) => {
     console.log("response", err);
     return Promise.reject(err);
   }
