@@ -17,9 +17,8 @@
   </article>
 </template>
 <script>
-import apiController from "@/utils/apiController.js";
+import { instance, proxyInstance } from "@/utils/apiController.js";
 const URL = "/test/route?query=1&param=2&form=3";
-const PROXY_URL = "/api" + URL;
 
 export default {
   name: "AxiosView",
@@ -95,69 +94,70 @@ export default {
 
   methods: {
     getData() {
-      return apiController({
+      return instance({
         url: URL,
         method: "get",
       });
     },
 
     postData() {
-      return apiController({
+      return instance({
         url: URL,
         method: "post",
       });
     },
 
     putData() {
-      return apiController({
+      return instance({
         url: URL,
         method: "put",
       });
     },
 
     patchData() {
-      return apiController({
+      return instance({
         url: URL,
         method: "patch",
       });
     },
 
     deleteData() {
-      return apiController({
+      return instance({
         url: URL,
         method: "delete",
       });
     },
 
     proxyGetData() {
-      this.$axios
-        .get(PROXY_URL)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
+      return proxyInstance({
+        url: URL,
+        method: "get",
+      });
     },
+
     proxyPostData() {
-      this.$axios
-        .post(PROXY_URL)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
+      return proxyInstance({
+        url: URL,
+        method: "post",
+      });
     },
     proxyPutData() {
-      this.$axios
-        .put(PROXY_URL)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
+      return proxyInstance({
+        url: URL,
+        method: "put",
+      });
     },
     proxyPatchData() {
-      this.$axios
-        .patch(PROXY_URL)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
+      return proxyInstance({
+        url: URL,
+        method: "patch",
+      });
     },
     proxyDeleteData() {
-      this.$axios
-        .delete(PROXY_URL)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
+      return proxyInstance({
+        url: URL,
+        method: "delete",
+      });
     },
   },
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-// const BASE_URL = "/api";
+const PROXY_API = "/api";
 const BASE_URL = "https://dev.gateway.himedi.com";
 const timezoneOffset = new Date().getTimezoneOffset();
 
@@ -32,4 +32,35 @@ instance.interceptors.response.use(
   }
 );
 
-export default instance;
+export { instance };
+
+const proxyInstance = axios.create({
+  baseURL: PROXY_API,
+  withCredentials: true,
+  headers: {
+    "Time-Zone": timezoneOffset,
+  },
+});
+
+proxyInstance.interceptors.request.use(
+  function (config) {
+    return config;
+  },
+  function (err) {
+    console.log("request err", err);
+    return Promise.reject(err);
+  }
+);
+
+proxyInstance.interceptors.response.use(
+  function (res) {
+    console.log("response", res.data);
+    return res;
+  },
+  function (err) {
+    console.log("response", err);
+    return Promise.reject(err);
+  }
+);
+
+export { proxyInstance };
