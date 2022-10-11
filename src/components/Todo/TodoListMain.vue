@@ -1,5 +1,5 @@
 <template>
-  <todo-list-menu v-on:change-filter="onChangeFilter" class="p-0" />
+  <todo-list-menu @change-filter="onChangeFilter" class="p-0" />
   <div v-for="key in Object.keys(filtered_todos)" :key="key" class="mb-3">
     <div v-if="use_category">
       <em>{{ key }}</em>
@@ -64,7 +64,11 @@ export default {
     provide("filters", filters);
 
     const groupBy = (todos) => {
-      return todos.reduce((acc, cur) => {});
+      return todos.reduce((acc, cur) => {
+        acc[cur["date"]] = acc[cur["date"]] || [];
+        acc[cur["date"]].push(cur);
+        return acc;
+      });
     };
 
     return {};

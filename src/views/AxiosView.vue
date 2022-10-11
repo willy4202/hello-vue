@@ -10,7 +10,7 @@
   </article>
   <h3>with Proxy</h3>
   <article>
-    <section v-for="data in proxyBtnData" :key="data">
+    <section v-for="data in useProxyBtnData" :key="data">
       <h4>{{ data.name }}Data</h4>
       <button @click="data.method">{{ data.name }}</button>
     </section>
@@ -59,7 +59,7 @@ export default {
           },
         },
       ],
-      proxyBtnData: [
+      useProxyBtnData: [
         {
           name: "get",
           method: () => {
@@ -161,10 +161,6 @@ export default {
         method: "delete",
       });
     },
-  },
-
-  created() {
-    console.log(process.env.NODE_ENV);
   },
 };
 </script>
