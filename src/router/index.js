@@ -37,6 +37,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "axios" */ "../views/AxiosView.vue"),
   },
+  {
+    path: "/fetch",
+    name: "fetch",
+    component: () =>
+      import(/* webpackChunkName: "fetch" */ "../views/FetchView.vue"),
+  },
 ];
 
 const router = createRouter({

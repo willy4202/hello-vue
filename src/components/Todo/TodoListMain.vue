@@ -17,7 +17,7 @@
 import { useFilter } from "@/compositions/filter";
 import TodoList from "./TodoList.vue";
 import TodoListMenu from "./TodoListMenu.vue";
-import { ref, provide, inject, watch, watchEffect } from "vue";
+import { ref, provide, inject, watchEffect } from "vue";
 
 export default {
   name: "TodoListMain",

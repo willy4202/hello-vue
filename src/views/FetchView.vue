@@ -1,29 +1,27 @@
 <template>
   <h2>now {{ currentEnv }} Env</h2>
-  <h2>Axios</h2>
+  <h2>Fetch</h2>
   <h3>without Proxy</h3>
-
   <article>
     <section v-for="method in httpMethods" :key="method">
       <h4>{{ method }} Data</h4>
-      <button @click="requestWithoutProxy(method)">{{ method }}</button>
+      <button @click="fetchData(method)">{{ method }}</button>
     </section>
   </article>
   <h3>with Proxy</h3>
   <article>
     <section v-for="method in httpMethods" :key="method">
       <h4>{{ method }}Data</h4>
-      <button @click="requestWithProxy(method)">{{ method }}</button>
+      <button @click="fetchWithProxy(method)">{{ method }}</button>
     </section>
   </article>
 </template>
+
 <script>
-import { instance, proxyInstance } from "@/utils/apiController.js";
-const URL = "/test/route?query=1&param=2&form=3";
+const URL = "https://dev.gateway.himedi.com/test/route?query=1&param=2&form=3";
 
 export default {
-  name: "AxiosView",
-
+  name: "FetchView",
   data() {
     return {
       currentEnv: process.env.NODE_ENV === "development" ? "dev" : "production",
@@ -32,18 +30,13 @@ export default {
   },
 
   methods: {
-    requestWithoutProxy(method) {
-      return instance({
-        url: URL,
-        method: method,
-      });
+    fetchData(method) {
+      fetch(URL, { method })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
     },
-
-    requestWithProxy(method) {
-      return proxyInstance({
-        url: URL,
-        method: method,
-      });
+    fetchWithProxy(mehod) {
+      console.log(mehod);
     },
   },
 };
