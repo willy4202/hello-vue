@@ -4,16 +4,16 @@
   <h3>without Proxy</h3>
 
   <article>
-    <section v-for="data in btnHandler" :key="data">
-      <h4>{{ data.name }} Data</h4>
-      <button @click="btnEventHandler(data.name)">{{ data.name }}</button>
+    <section v-for="data in httpMethods" :key="data">
+      <h4>{{ data }} Data</h4>
+      <button @click="eventHandler(data)">{{ data }}</button>
     </section>
   </article>
   <h3>with Proxy</h3>
   <article>
-    <section v-for="data in btnHandler" :key="data">
-      <h4>{{ data.name }}Data</h4>
-      <button @click="proxyBtnEvnetHandler(data.name)">{{ data.name }}</button>
+    <section v-for="data in httpMethods" :key="data">
+      <h4>{{ data }}Data</h4>
+      <button @click="proxyEvnetHandler(data)">{{ data }}</button>
     </section>
   </article>
 </template>
@@ -28,36 +28,19 @@ export default {
     return {
       currentMode:
         process.env.NODE_ENV === "development" ? "dev" : "production",
-
-      btnHandler: [
-        {
-          name: "get",
-        },
-        {
-          name: "post",
-        },
-        {
-          name: "put",
-        },
-        {
-          name: "patch",
-        },
-        {
-          name: "delete",
-        },
-      ],
+      httpMethods: ["get", "post", "put", "patch", "delete"],
     };
   },
 
   methods: {
-    btnEventHandler(name) {
+    eventHandler(name) {
       return instance({
         url: URL,
         method: name,
       });
     },
 
-    proxyBtnEvnetHandler(name) {
+    proxyEvnetHandler(name) {
       return proxyInstance({
         url: URL,
         method: name,
