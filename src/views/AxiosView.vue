@@ -1,5 +1,5 @@
 <template>
-  <h2>now {{ currentMode }} mode</h2>
+  <h2>now {{ currentEnv }} Env</h2>
   <h2>server CORS setting is 'true'</h2>
   <h3>without Proxy</h3>
 
@@ -23,11 +23,10 @@ const URL = "/test/route?query=1&param=2&form=3";
 
 export default {
   name: "AxiosView",
-  components: {},
+
   data() {
     return {
-      currentMode:
-        process.env.NODE_ENV === "development" ? "dev" : "production",
+      currentEnv: process.env.NODE_ENV === "development" ? "dev" : "production",
       httpMethods: ["get", "post", "put", "patch", "delete"],
     };
   },
