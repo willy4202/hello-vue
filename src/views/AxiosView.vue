@@ -1,19 +1,19 @@
 <template>
   <h2>now {{ currentMode }} mode</h2>
-  <h3>server CORS setting is 'true'</h3>
+  <h2>server CORS setting is 'true'</h2>
   <h3>without Proxy</h3>
 
   <article>
-    <section v-for="data in httpMethods" :key="data">
-      <h4>{{ data }} Data</h4>
-      <button @click="eventHandler(data)">{{ data }}</button>
+    <section v-for="method in httpMethods" :key="method">
+      <h4>{{ method }} Data</h4>
+      <button @click="requestWithoutProxy(method)">{{ method }}</button>
     </section>
   </article>
   <h3>with Proxy</h3>
   <article>
-    <section v-for="data in httpMethods" :key="data">
-      <h4>{{ data }}Data</h4>
-      <button @click="proxyEvnetHandler(data)">{{ data }}</button>
+    <section v-for="method in httpMethods" :key="method">
+      <h4>{{ method }}Data</h4>
+      <button @click="requestWithProxy(method)">{{ method }}</button>
     </section>
   </article>
 </template>
@@ -33,17 +33,17 @@ export default {
   },
 
   methods: {
-    eventHandler(name) {
+    requestWithoutProxy(method) {
       return instance({
         url: URL,
-        method: name,
+        method: method,
       });
     },
 
-    proxyEvnetHandler(name) {
+    requestWithProxy(method) {
       return proxyInstance({
         url: URL,
-        method: name,
+        method: method,
       });
     },
   },
