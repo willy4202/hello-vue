@@ -1,14 +1,17 @@
 import axios from "axios";
 const PROXY_API = "/api";
 const BASE_URL = "https://dev.gateway.himedi.com";
-const timezoneOffset = new Date().getTimezoneOffset();
+const option = {
+  headers: {
+    "Content-Type": "application/json",
+    "Time-Zone": new Date().getTimezoneOffset(),
+  },
+};
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
-  headers: {
-    "Time-Zone": timezoneOffset,
-  },
+  ...option,
 });
 
 axiosInstance.interceptors.request.use(
@@ -22,6 +25,7 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (res) => {
+    console.log("interceptors res", res.data);
     return res;
   },
   (err) => {
@@ -32,9 +36,7 @@ axiosInstance.interceptors.response.use(
 const axiosProxyInstnace = axios.create({
   baseURL: PROXY_API,
   withCredentials: true,
-  headers: {
-    "Time-Zone": timezoneOffset,
-  },
+  ...option,
 });
 
 axiosProxyInstnace.interceptors.request.use(
@@ -48,6 +50,7 @@ axiosProxyInstnace.interceptors.request.use(
 
 axiosProxyInstnace.interceptors.response.use(
   (res) => {
+    console.log("interceptors res", res.data);
     return res;
   },
   (err) => {
@@ -58,21 +61,29 @@ axiosProxyInstnace.interceptors.response.use(
 export { axiosProxyInstnace, axiosInstance };
 
 const fetchInstnace = async (params, method) => {
-  return await fetch(BASE_URL + params, {
+  const res = await fetch(BASE_URL + params, {
     method: method,
-    headers: {
-      "Time-Zone": timezoneOffset,
-    },
+    ...option,
   });
+  const data = await res.json();
+  if (res.ok) {
+    console.log(data);
+  } else {
+    throw Error(data);
+  }
 };
 
 const fetchProxyInstnace = async (params, method) => {
-  return await fetch(PROXY_API + params, {
+  const res = await fetch(PROXY_API + params, {
     method: method,
-    headers: {
-      "Time-Zone": timezoneOffset,
-    },
+    ...option,
   });
+  const data = await res.json();
+  if (res.ok) {
+    console.log(data);
+  } else {
+    throw Error(data);
+  }
 };
 
 export { fetchInstnace, fetchProxyInstnace };
