@@ -22,6 +22,7 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (res) => {
+    console.log(res.data);
     return res;
   },
   (err) => {
@@ -48,6 +49,7 @@ axiosProxyInstnace.interceptors.request.use(
 
 axiosProxyInstnace.interceptors.response.use(
   (res) => {
+    console.log(res.data);
     return res;
   },
   (err) => {
@@ -57,7 +59,7 @@ axiosProxyInstnace.interceptors.response.use(
 
 export { axiosProxyInstnace, axiosInstance };
 
-const fetchRequestInsntace = async (params, method) => {
+const fetchInstnace = async (params, method) => {
   return await fetch(BASE_URL + params, {
     method: method,
     headers: {
@@ -69,4 +71,16 @@ const fetchRequestInsntace = async (params, method) => {
     .then((data) => console.log(data));
 };
 
-export { fetchRequestInsntace };
+const fetchProxyInstnace = async (params, method) => {
+  return await fetch(PROXY_API + params, {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+      "Time-Zone": timezoneOffset,
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+};
+
+export { fetchInstnace, fetchProxyInstnace };

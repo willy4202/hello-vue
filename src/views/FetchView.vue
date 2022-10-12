@@ -5,20 +5,23 @@
   <article>
     <section v-for="method in httpMethods" :key="method">
       <h4>{{ method }} Data</h4>
-      <button @click="fetchData(method)">{{ method }}</button>
+      <button @click="requestWithoutProxy(method)">{{ method }}</button>
     </section>
   </article>
   <h3>with Proxy</h3>
   <article>
     <section v-for="method in httpMethods" :key="method">
       <h4>{{ method }}Data</h4>
-      <button @click="fetchWithProxy(method)">{{ method }}</button>
+      <button @click="requestWithProxy(method)">{{ method }}</button>
     </section>
   </article>
 </template>
 
 <script>
-const URL = "https://dev.gateway.himedi.com/test/route?query=1&param=2&form=3";
+const proxyURL = "/api/test/route?query=1&param=2&form=3";
+const params = "/test/route?query=1&param=2&form=3";
+
+import { fetchInstnace, fetchProxyInstnace } from "@/utils/apiController";
 
 export default {
   name: "FetchView",
@@ -30,13 +33,18 @@ export default {
   },
 
   methods: {
-    fetchData(method) {
-      fetch(URL, { method })
+    fetchWithProxy(method) {
+      fetch(proxyURL, { method })
         .then((res) => res.json())
         .then((data) => console.log(data));
     },
-    fetchWithProxy(mehod) {
-      console.log(mehod);
+
+    requestWithoutProxy(method) {
+      fetchInstnace(params, method);
+    },
+
+    requestWithProxy(method) {
+      fetchProxyInstnace(params, method);
     },
   },
 };
