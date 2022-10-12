@@ -27,23 +27,23 @@ export default {
   data() {
     return {
       currentEnv: process.env.NODE_ENV === "development" ? "dev" : "production",
-      httpMethods: ["get", "post", "put", "patch", "delete"],
+      httpMethods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     };
   },
 
   methods: {
     requestWithoutProxy(method) {
-      axiosInstance({
+      return axiosInstance({
         url: params,
-        method: method,
-      }).then((res) => console.log(res.data));
+        method,
+      }).then((res) => console.log("then", res.data));
     },
 
     requestWithProxy(method) {
-      axiosProxyInstnace({
+      return axiosProxyInstnace({
         url: params,
-        method: method,
-      }).then((res) => console.log(res.data));
+        method,
+      }).then((res) => console.log("then", res.data));
     },
   },
 };
