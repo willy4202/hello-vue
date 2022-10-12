@@ -18,9 +18,7 @@
 </template>
 
 <script>
-const proxyURL = "/api/test/route?query=1&param=2&form=3";
 const params = "/test/route?query=1&param=2&form=3";
-
 import { fetchInstnace, fetchProxyInstnace } from "@/utils/apiController";
 
 export default {
@@ -28,17 +26,11 @@ export default {
   data() {
     return {
       currentEnv: process.env.NODE_ENV === "development" ? "dev" : "production",
-      httpMethods: ["get", "post", "put", "patch", "delete"],
+      httpMethods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     };
   },
 
   methods: {
-    fetchWithProxy(method) {
-      fetch(proxyURL, { method })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    },
-
     requestWithoutProxy(method) {
       fetchInstnace(params, method)
         .then((res) => res.json())

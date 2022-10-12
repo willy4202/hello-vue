@@ -33,17 +33,17 @@ export default {
 
   methods: {
     requestWithoutProxy(method) {
-      return axiosInstance({
+      axiosInstance({
         url: params,
         method: method,
-      });
+      }).then((res) => console.log(res.data));
     },
 
     requestWithProxy(method) {
-      return axiosProxyInstnace({
+      axiosProxyInstnace({
         url: params,
         method: method,
-      });
+      }).then((res) => console.log(res.data));
     },
   },
 };
