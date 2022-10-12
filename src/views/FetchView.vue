@@ -32,15 +32,11 @@ export default {
 
   methods: {
     requestWithoutProxy(method) {
-      fetchInstnace(params, method)
-        .then((res) => res.json())
-        .then((data) => console.log(data));
+      fetchInstnace(params, method);
     },
 
     requestWithProxy(method) {
-      fetchProxyInstnace(params, method)
-        .then((res) => res.json())
-        .then((data) => console.log(data));
+      fetchProxyInstnace(params, method);
     },
   },
 };
