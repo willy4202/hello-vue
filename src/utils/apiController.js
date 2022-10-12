@@ -3,7 +3,7 @@ const PROXY_API = "/api";
 const BASE_URL = "https://dev.gateway.himedi.com";
 const timezoneOffset = new Date().getTimezoneOffset();
 
-const instance = axios.create({
+const axiosInstance = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
   headers: {
@@ -11,30 +11,25 @@ const instance = axios.create({
   },
 });
 
-instance.interceptors.request.use(
+axiosInstance.interceptors.request.use(
   (config) => {
     return config;
   },
   (err) => {
-    console.log("request err", err);
     return Promise.reject(err);
   }
 );
 
-instance.interceptors.response.use(
+axiosInstance.interceptors.response.use(
   (res) => {
-    console.log("response", res.data);
     return res;
   },
   (err) => {
-    console.log("response", err);
     return Promise.reject(err);
   }
 );
 
-export { instance };
-
-const proxyInstance = axios.create({
+const axiosProxyInstnace = axios.create({
   baseURL: PROXY_API,
   withCredentials: true,
   headers: {
@@ -42,25 +37,36 @@ const proxyInstance = axios.create({
   },
 });
 
-proxyInstance.interceptors.request.use(
+axiosProxyInstnace.interceptors.request.use(
   (config) => {
     return config;
   },
   (err) => {
-    console.log("request err", err);
     return Promise.reject(err);
   }
 );
 
-proxyInstance.interceptors.response.use(
+axiosProxyInstnace.interceptors.response.use(
   (res) => {
-    console.log("response", res.data);
     return res;
   },
   (err) => {
-    console.log("response", err);
     return Promise.reject(err);
   }
 );
 
-export { proxyInstance };
+export { axiosProxyInstnace, axiosInstance };
+
+const fetchRequestInsntace = async (params, method) => {
+  return await fetch(BASE_URL + params, {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+      "Time-Zone": timezoneOffset,
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+};
+
+export { fetchRequestInsntace };

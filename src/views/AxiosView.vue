@@ -18,8 +18,8 @@
   </article>
 </template>
 <script>
-import { instance, proxyInstance } from "@/utils/apiController.js";
-const URL = "/test/route?query=1&param=2&form=3";
+import { axiosInstance, axiosProxyInstnace } from "@/utils/apiController.js";
+const params = "/test/route?query=1&param=2&form=3";
 
 export default {
   name: "AxiosView",
@@ -33,17 +33,17 @@ export default {
 
   methods: {
     requestWithoutProxy(method) {
-      return instance({
-        url: URL,
+      return axiosInstance({
+        url: params,
         method: method,
-      });
+      }).then((res) => console.log(res.data));
     },
 
     requestWithProxy(method) {
-      return proxyInstance({
-        url: URL,
+      return axiosProxyInstnace({
+        url: params,
         method: method,
-      });
+      }).then((res) => console.log(res.data));
     },
   },
 };
