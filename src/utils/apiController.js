@@ -66,9 +66,7 @@ const fetchInstnace = async (params, method) => {
       "Content-Type": "application/json",
       "Time-Zone": timezoneOffset,
     },
-  })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+  });
 };
 
 const fetchProxyInstnace = async (params, method) => {
@@ -78,9 +76,7 @@ const fetchProxyInstnace = async (params, method) => {
       "Content-Type": "application/json",
       "Time-Zone": timezoneOffset,
     },
-  })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+  });
 };
 
 export { fetchInstnace, fetchProxyInstnace };
