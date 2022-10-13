@@ -19,7 +19,7 @@
 
 <script>
 const params = "/test/route?query=1&param=2&form=3";
-import { fetchInstnace, fetchProxyInstnace } from "@/utils/apiController";
+import { fetchInstance, fetchProxyInstance } from "@/utils/apiController";
 
 export default {
   name: "FetchView",
@@ -32,11 +32,11 @@ export default {
 
   methods: {
     requestWithoutProxy(method) {
-      fetchInstnace(params, method);
+      fetchInstance(params, method);
     },
 
     requestWithProxy(method) {
-      fetchProxyInstnace(params, method);
+      fetchProxyInstance(params, method);
     },
   },
 };

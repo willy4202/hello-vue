@@ -21,7 +21,6 @@ axiosInstance.interceptors.request.use(
     return Promise.reject(err);
   }
 );
-
 axiosInstance.interceptors.response.use(
   (res) => {
     return res;
@@ -56,7 +55,7 @@ axiosProxyInstnace.interceptors.response.use(
 
 export { axiosProxyInstnace, axiosInstance };
 
-const fetchInstnace = async (params, method) => {
+const fetchInstance = async (params, method) => {
   const res = await fetch(BASE_URL + params, {
     method: method,
     ...option,
@@ -69,7 +68,7 @@ const fetchInstnace = async (params, method) => {
   }
 };
 
-const fetchProxyInstnace = async (params, method) => {
+const fetchProxyInstance = async (params, method) => {
   const res = await fetch(PROXY_API + params, {
     method: method,
     ...option,
@@ -82,4 +81,4 @@ const fetchProxyInstnace = async (params, method) => {
   }
 };
 
-export { fetchInstnace, fetchProxyInstnace };
+export { fetchInstance, fetchProxyInstance };
