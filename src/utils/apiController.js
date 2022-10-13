@@ -10,7 +10,6 @@ const option = {
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
-  withCredentials: true,
   ...option,
 });
 
@@ -25,7 +24,6 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (res) => {
-    console.log("interceptors res", res.data);
     return res;
   },
   (err) => {
@@ -35,7 +33,6 @@ axiosInstance.interceptors.response.use(
 
 const axiosProxyInstnace = axios.create({
   baseURL: PROXY_API,
-  withCredentials: true,
   ...option,
 });
 
@@ -50,7 +47,6 @@ axiosProxyInstnace.interceptors.request.use(
 
 axiosProxyInstnace.interceptors.response.use(
   (res) => {
-    console.log("interceptors res", res.data);
     return res;
   },
   (err) => {

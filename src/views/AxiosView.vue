@@ -36,14 +36,14 @@ export default {
       return axiosInstance({
         url: params,
         method,
-      }).then((res) => console.log("then", res.data));
+      }).then((res) => console.log(res.data));
     },
 
     requestWithProxy(method) {
       return axiosProxyInstnace({
         url: params,
         method,
-      }).then((res) => console.log("then", res.data));
+      }).then((res) => console.log(res.data));
     },
   },
 };
