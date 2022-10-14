@@ -12,27 +12,21 @@ export const useFilter = () => {
 
   const getPendingTodos = (todos) => {
     return todos.value
-      .filter((todo) => {
-        todo.date < today && !todo.completed;
-      })
+      .filter((todo) => todo.date < today && !todo.completed)
       .slice()
       .sort(fnSort);
   };
 
   const getActiveTodayTodos = (todos) => {
     return todos.value
-      .filter((todo) => {
-        todo.date == today && !today.completed;
-      })
+      .filter((todo) => todo.date == today && !today.completed)
       .slice()
       .sort(fnSort);
   };
 
   const getCompletedTodayTodos = (todos) => {
     return todos.value
-      .filter((todo) => {
-        todo.date == today && today.completed;
-      })
+      .filter((todo) => todo.date == today && today.completed)
       .slice()
       .sort(fnSort);
   };

@@ -8,7 +8,7 @@
   </div>
   <div class="my-2 mt-5">
     <span style="background-color: red"> &nbsp;</span>
-    <strong> 미완료 작업</strong>
+    <strong> Pending Todo </strong>
   </div>
   <todo-list :data="pending_todos" />
 </template>
@@ -17,7 +17,7 @@
 import { useFilter } from "@/compositions/filter";
 import TodoList from "./TodoList.vue";
 import TodoListMenu from "./TodoListMenu.vue";
-import { ref, provide, inject, watchEffect, watch } from "vue";
+import { ref, provide, inject, watch } from "vue";
 
 export default {
   name: "TodoListMain",
@@ -40,22 +40,22 @@ export default {
 
     const filters = {
       0: {
-        str: "해야 할 작업들",
-        func: getCompletedTodayTodos,
-        category: false,
-      },
-      1: {
-        str: "완료한 작업들",
+        str: "Today Todo",
         func: getActiveTodayTodos,
         category: false,
       },
+      1: {
+        str: "Today Completed",
+        func: getCompletedTodayTodos,
+        category: false,
+      },
       2: {
-        str: "오늘의 모든 기록",
+        str: "What i do Today",
         func: getAllTodayTodos,
         category: false,
       },
       3: {
-        str: "모든 작업",
+        str: "All Todo Log",
         func: getAllTodos,
         category: false,
       },
@@ -65,7 +65,6 @@ export default {
 
     /** filter모듈에서 받은  배열을 특정 키워드로 분리해주는 함수 */
     const groupBy = (todos) => {
-      // console.log("groupBy", todos);
       return todos.reduce((acc, cur) => {
         acc[cur["date"]] = acc[cur["date"]] || [];
         acc[cur["date"]].push(cur);
@@ -74,12 +73,11 @@ export default {
     };
 
     const onChangeFilter = (filter_idx) => {
-      console.log(filter_idx);
       filter.value = Number(filter_idx);
     };
 
-    //** Object.keys로 받으면 []로 들어간다 */
-    console.log("filters", Object.keys(filters));
+    /** Object.keys로 받으면 []로 들어간다 */
+    // console.log("filters", Object.keys(filters));
 
     watch(
       [() => filter.value, todos.value],

@@ -1,8 +1,8 @@
 <template>
   <header>
     <div class="my-5">
-      <h1>할 일</h1>
-      <em>{{ today }}</em>
+      <h1>ToDo List</h1>
+      {{ today }}
     </div>
   </header>
   <todo-list-container />
