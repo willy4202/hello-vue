@@ -7,7 +7,8 @@ import "bootstrap-vue-3";
 import JQuery from "jquery";
 window.$ = JQuery;
 
-import "bootstrap/dist/js/bootstrap.esm.min.js";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue-3/dist/bootstrap-vue-3.css";
 import "bootstrap/scss/bootstrap.scss";
 import "bootstrap-vue-3";
 import "hooper/dist/hooper.css";
@@ -22,6 +23,7 @@ import VueScrollPicker from "vue3-scroll-picker";
 import VueCookies from "vue-cookies";
 import i18n from "./locales";
 import axios from "axios";
+import { BootstrapVue3 } from "bootstrap-vue-3";
 
 const app = createApp(App);
 
@@ -41,6 +43,7 @@ app
   .use(router)
   .use(i18n)
   .use(VueCookies, { expire: "7d" })
+  .use(BootstrapVue3)
 
   .provide("today", new Date().toISOString().split("T")[0])
   .mount("#app");

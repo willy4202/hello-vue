@@ -1,5 +1,5 @@
 <template>
-  <todo-list-menu @change-filter="onChangeFilter" class="p-0" />
+  <todo-list-menu v-on:change-filter="onChangeFilter" class="p-0" />
   <div v-for="key in Object.keys(filtered_todos)" :key="key" class="mb-3">
     <div v-if="use_category">
       <em>{{ key }}</em>
@@ -8,7 +8,7 @@
   </div>
   <div class="my-2 mt-5">
     <span style="background-color: red"> &nbsp;</span>
-    <strong>미완료 작업</strong>
+    <strong> 미완료 작업</strong>
   </div>
   <todo-list :data="pending_todos" />
 </template>
@@ -17,11 +17,12 @@
 import { useFilter } from "@/compositions/filter";
 import TodoList from "./TodoList.vue";
 import TodoListMenu from "./TodoListMenu.vue";
-import { ref, provide, inject, watchEffect } from "vue";
+import { ref, provide, inject, watchEffect, watch } from "vue";
 
 export default {
   name: "TodoListMain",
   components: { TodoListMenu, TodoList },
+
   setup(props) {
     const {
       getPendingTodos,
@@ -62,7 +63,9 @@ export default {
 
     provide("filters", filters);
 
+    /** filter모듈에서 받은  배열을 특정 키워드로 분리해주는 함수 */
     const groupBy = (todos) => {
+      // console.log("groupBy", todos);
       return todos.reduce((acc, cur) => {
         acc[cur["date"]] = acc[cur["date"]] || [];
         acc[cur["date"]].push(cur);
@@ -71,10 +74,14 @@ export default {
     };
 
     const onChangeFilter = (filter_idx) => {
+      console.log(filter_idx);
       filter.value = Number(filter_idx);
     };
 
-    watchEffect(
+    //** Object.keys로 받으면 []로 들어간다 */
+    console.log("filters", Object.keys(filters));
+
+    watch(
       [() => filter.value, todos.value],
       ([new_filter, new_todos], [old_filter, old_todos]) => {
         pending_todos.value = getPendingTodos(todos);

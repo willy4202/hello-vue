@@ -21,7 +21,10 @@
           />
         </div>
         <input type="text" class="form-control" :value="todo.job" />
-        <button class="btn btn-outline-primary dropdown-toggle">
+        <button
+          class="btn btn-outline-primary dropdown-toggle"
+          data-bs-toggle="dropdown"
+        >
           할 일 관리
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
@@ -50,13 +53,16 @@ export default {
       default: [],
     },
   },
-  setup() {
+  setup(props) {
     const removeTodo = inject("removeTodo");
     const completeTodo = inject("completeTodo");
     const today = inject("today");
 
     const menu = [
-      { str: "할일 삭제", func: removeTodo },
+      {
+        str: "할일 삭제",
+        func: removeTodo,
+      },
       {
         str: "할일 완료",
         func: completeTodo,

@@ -34,6 +34,7 @@
 import { inject, reactive, toRefs } from "@vue/runtime-core";
 export default {
   name: "TodoListNew",
+
   setup() {
     const today = inject("today");
     const addTodo = inject("addTodo");
@@ -43,6 +44,7 @@ export default {
       today: today,
     });
 
+    /** 입력 값이 있다면 addTodo에 해당 값을 추가 */
     const onAddTodo = () => {
       if (val_obj.job.length > 0) {
         addTodo(val_obj.job, val_obj.date);
@@ -50,6 +52,7 @@ export default {
         val_obj.date = today;
       }
     };
+
     return {
       ...toRefs(val_obj),
       onAddTodo,

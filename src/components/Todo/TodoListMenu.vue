@@ -27,27 +27,29 @@
 
 <script>
 import { ref, inject, computed, watch } from "vue";
+
 export default {
   name: "TodoListMenu",
-  setup(props, context) {
+  emits: ["change-filter"],
+  setup(props, { emit }) {
     const filters = inject("filters");
     const filter = ref(0);
+
     const state = computed(() => {
       return filters[filter.value].str;
     });
-    watch(() => {
-      filter.value,
-        (filter) => {
-          context.emits("change-filter", filter);
-        };
-    });
 
-    context.emit("change-filter", filter);
+    watch(
+      () => filter.value,
+      (filter) => {
+        emit("change-filter", filter);
+      }
+    );
 
     return {
       state,
-      filters,
       filter,
+      filters,
     };
   },
 };

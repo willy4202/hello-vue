@@ -24,7 +24,9 @@ export default {
 
     const initTodos = (init_todos) => {
       todos.value = init_todos;
+      console.log(todos.value);
     };
+
     const addTodo = (job, date) => {
       todos.value.push({
         id: storage_id.value++,
@@ -34,6 +36,7 @@ export default {
       });
       saveTodos(todos);
     };
+
     const removeTodo = (id) => {
       todos.value.splice(id, 1);
       todos.value.forEach((todo, idx) => {
@@ -41,11 +44,10 @@ export default {
       });
       saveTodos(todos);
     };
+
     const completeTodo = (id) => {
-      todos.value.find((todo) => {
-        (todo.id == id).completed = true;
-        saveTodos(todos);
-      });
+      todos.value.find((todo) => todo.id == id).completed = true;
+      saveTodos(todos);
     };
 
     provide("todos", readonly(todos));
