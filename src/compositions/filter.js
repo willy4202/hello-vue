@@ -19,14 +19,14 @@ export const useFilter = () => {
 
   const getActiveTodayTodos = (todos) => {
     return todos.value
-      .filter((todo) => todo.date == today && !today.completed)
+      .filter((todo) => todo.date == today && !todo.completed)
       .slice()
       .sort(fnSort);
   };
 
   const getCompletedTodayTodos = (todos) => {
     return todos.value
-      .filter((todo) => todo.date == today && today.completed)
+      .filter((todo) => todo.date == today && todo.completed)
       .slice()
       .sort(fnSort);
   };

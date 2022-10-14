@@ -24,7 +24,6 @@ export default {
 
     const initTodos = (init_todos) => {
       todos.value = init_todos;
-      console.log(todos.value);
     };
 
     const addTodo = (job, date) => {
