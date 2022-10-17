@@ -6,7 +6,8 @@
     <router-link to="/rtl">rtl</router-link> |
     <router-link to="/axios">axios</router-link> |
     <router-link to="/fetch">fetch</router-link> |
-    <router-link to="/todo">TodoList</router-link>
+    <router-link to="/router">vueRouter</router-link> |
+    <router-link to="/todo">TodoList</router-link> |
   </nav>
   <router-view />
 </template>

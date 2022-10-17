@@ -43,6 +43,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "fetch" */ "../views/FetchView.vue"),
   },
+  {
+    path: "/router",
+    name: "router",
+    component: () =>
+      import(/* webpackChunkName: "router" */ "../views/VueRouterView.vue"),
+  },
 ];
 
 const router = createRouter({

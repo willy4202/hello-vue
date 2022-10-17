@@ -5,19 +5,23 @@
       {{ today }}
     </div>
   </header>
-  <todo-list-container :data="message" />
+  <todo-list-container @changeMessage="changeMessage" :data="message" />
 </template>
 <script>
 import TodoListContainer from "@/components/Todo/TodoListContainer.vue";
-import { inject } from "@vue/runtime-core";
+import { inject, ref } from "@vue/runtime-core";
 
 export default {
   name: "app",
   components: { TodoListContainer },
+
   setup() {
     const today = inject("today");
-    const message = "hello this is props";
+    const message = ref("hello this is props");
 
+    const changeMessage = () => {
+      message.value = "now this is emit";
+    };
     return { today, message };
   },
 };

@@ -1,13 +1,14 @@
 <template>
   <todo-list-new />
   <section class="container">
+    <h3>{{ data }}</h3>
     <div class="row justify-content-center m-2">
       <todo-list-main />
     </div>
   </section>
 </template>
 <script>
-import { readonly, ref, provide, onMounted } from "vue";
+import { readonly, ref, provide } from "vue";
 import { useStorage } from "@/compositions/storage";
 import TodoListNew from "./TodoListNew.vue";
 import TodoListMain from "./TodoListMain.vue";
@@ -16,7 +17,7 @@ export default {
   name: "TodoListContainer",
   components: { TodoListNew, TodoListMain },
   props: ["data"],
-  setup(props) {
+  setup(props, context) {
     const todos = ref([]);
     const { loadTodos, saveTodos, storage_id } = useStorage();
 
