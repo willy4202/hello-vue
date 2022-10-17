@@ -5,7 +5,7 @@
       {{ today }}
     </div>
   </header>
-  <todo-list-container />
+  <todo-list-container :data="message" />
 </template>
 <script>
 import TodoListContainer from "@/components/Todo/TodoListContainer.vue";
@@ -16,7 +16,9 @@ export default {
   components: { TodoListContainer },
   setup() {
     const today = inject("today");
-    return { today };
+    const message = "hello this is props";
+
+    return { today, message };
   },
 };
 </script>
