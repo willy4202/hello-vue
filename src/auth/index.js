@@ -1,3 +1,3 @@
-const isToken = !!sessionStorage.getItem("token");
+let isToken = !!sessionStorage.getItem("token");
 
-export default isToken;
+export { isToken };
