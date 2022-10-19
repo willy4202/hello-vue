@@ -9,3 +9,17 @@ export const useCounterStore = defineStore("counter", () => {
 
   return { count, increment };
 });
+
+export const useUserState = defineStore("user", {
+  state: () => ({
+    isLogin: !!sessionStorage.getItem("token"),
+  }),
+  actions: {
+    setLogin() {
+      this.isLogin = true;
+    },
+    setLogout() {
+      this.isLogin = false;
+    },
+  },
+});
