@@ -1,3 +1,3 @@
 let isToken = !!sessionStorage.getItem("token");
 
-export { isToken };
+export default isToken;

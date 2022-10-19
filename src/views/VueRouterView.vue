@@ -1,6 +1,6 @@
 <template>
   <article>
-    <h2>Vue</h2>
+    <h2>Router</h2>
     <nav>
       <router-link to="/router/public">public</router-link> |
       <router-link to="/router/private">private</router-link> |
