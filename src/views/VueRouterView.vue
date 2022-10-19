@@ -1,6 +1,6 @@
 <template>
   <article>
-    <h2>Auth</h2>
+    <h2>Vue</h2>
     <nav>
       <router-link to="/router/public">public</router-link> |
       <router-link to="/router/private">private</router-link> |
@@ -9,20 +9,11 @@
   </article>
 </template>
 <script>
-import isToken from "@/auth";
-import { useCounterStore } from "@/store/pinia.js";
-import { storeToRefs } from "pinia";
-
-const counter = useCounterStore();
 export default {
   setup() {
-    const { count } = storeToRefs(counter);
+    const isToken = !!sessionStorage.getItem("token");
 
-    const onClickAdd = () => {
-      counter.increment();
-    };
-
-    return { count, onClickAdd, isToken };
+    return { isToken };
   },
 };
 </script>
