@@ -74,6 +74,12 @@ const routes = [
         /* webpackChunkName: "public" */ "../views/RouterView/PublicView.vue"
       ),
   },
+  {
+    path: "/life",
+    name: "life",
+    component: () =>
+      import(/* webpackChunkName: "life" */ "../views/LifecycleView.vue"),
+  },
 ];
 
 const router = createRouter({
