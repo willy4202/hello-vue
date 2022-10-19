@@ -20,6 +20,7 @@
     "core-js": "^3.8.3",
     "hooper": "^0.3.4",
     "jquery": "^3.6.1",
+    "pinia": "^2.0.23",
     "rtlcss": "^4.0.0",
     "scrollbooster": "^3.0.2",
     "v-calendar": "^3.0.0-alpha.8",

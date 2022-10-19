@@ -1,7 +1,9 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
+
+const pinia = createPinia();
 
 import "bootstrap-vue-3";
 import JQuery from "jquery";
@@ -39,7 +41,7 @@ app
     id: "UA-159915865-1",
     router,
   })
-  .use(store)
+  .use(pinia)
   .use(router)
   .use(i18n)
   .use(VueCookies, { expire: "7d" })
