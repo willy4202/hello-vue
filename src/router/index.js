@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import I18nView from "../views/I18nView.vue";
-import isToken from "@/auth";
 
 const routes = [
   {
@@ -82,7 +81,8 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from) => {
+router.beforeEach((to) => {
+  const isToken = !!sessionStorage.getItem("token");
   if (!isToken && to.name == "private") {
     return { name: "login", replace: true };
   }
