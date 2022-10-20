@@ -1,16 +1,11 @@
 <template>
-  <nav>
-    <router-link to="/">I18n</router-link> |
-    <router-link to="/l10n">L10N</router-link> |
-    <router-link to="/date">DateTime</router-link> |
-    <router-link to="/rtl">rtl</router-link> |
-    <router-link to="/axios">axios</router-link> |
-    <router-link to="/fetch">fetch</router-link> |
-    <router-link to="/router">vueRouter</router-link> |
-    <router-link to="/life">Life</router-link> |
-    <router-link to="/todo">TodoList</router-link> |
-  </nav>
-  <router-view />
+  <article>
+    <h2>Target</h2>
+    <div class="wrapper">
+      {{ count }}
+      <button @click="count++">+</button>
+    </div>
+  </article>
 </template>
 <script>
 import {
@@ -20,15 +15,18 @@ import {
   onMounted,
   onUnmounted,
   onUpdated,
+  ref,
 } from "@vue/runtime-core";
-const component = "i'm App ";
-const setup = " setup";
+const component = "i'm Target ";
+const setup = " setup API";
 
 export default {
-  name: "App",
+  name: "target",
   components: {},
   setup() {
-    console.log(component + "setup API");
+    const count = ref(0);
+
+    console.log(component + setup);
 
     onBeforeMount(() => {
       console.log(component + "onBeforeMount" + setup);
@@ -54,7 +52,7 @@ export default {
       console.log(component + "onUnmounted" + setup);
     });
 
-    return { setup };
+    return { setup, count };
   },
   beforeCreate() {
     console.log(component + "beforeCreated");
@@ -80,25 +78,30 @@ export default {
   unmounted() {
     console.log(component + "unmounted");
   },
+  /**  router Lifecycle*/
+  beforeRouteLeave() {
+    console.log(component + "beforeRouteLeave");
+  },
+
+  beforeRouteEnter() {
+    console.log(component + "beforeRouteEnter");
+  },
+
+  beforeRouteUpdate() {
+    console.log(component + "beforeRouteUpdate");
+  },
 };
 </script>
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  color: #2c3e50;
+<style lang="scss" scoped>
+article {
+  text-align: center;
 }
 
-nav {
-  padding: 30px;
-  margin-left: 20px;
-  text-align: center;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.wrapper {
+  margin: 20px 0;
+  button {
+    width: auto;
+    border: none;
   }
 }
 </style>

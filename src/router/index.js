@@ -79,6 +79,20 @@ const routes = [
     name: "life",
     component: () =>
       import(/* webpackChunkName: "life" */ "../views/LifecycleView.vue"),
+    beforeEnter: () => {
+      console.log("default beforeEnter");
+    },
+  },
+  {
+    path: "/life/target",
+    name: "target",
+    component: () =>
+      import(
+        /* webpackChunkName: "target" */ "../views/LifeView/TargetView.vue"
+      ),
+    beforeEnter: () => {
+      console.log("target beforeEnter");
+    },
   },
 ];
 
@@ -95,6 +109,18 @@ router.beforeEach((to) => {
   if (isToken && to.name == "login") {
     return { name: "router" };
   }
+});
+
+router.beforeEach(() => {
+  console.log("global beforeEach");
+});
+
+router.beforeResolve(() => {
+  console.log("global beforeResolve");
+});
+
+router.afterEach(() => {
+  console.log("global afterEach");
 });
 
 export default router;
