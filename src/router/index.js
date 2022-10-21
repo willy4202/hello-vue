@@ -94,6 +94,12 @@ const routes = [
       console.log("target beforeEnter");
     },
   },
+  {
+    path: "/composition",
+    name: "composition",
+    component: () =>
+      import(/* webpackChunkName: "Compo" */ "../views/CompositionView.vue"),
+  },
 ];
 
 const router = createRouter({
@@ -109,18 +115,6 @@ router.beforeEach((to) => {
   if (isToken && to.name == "login") {
     return { name: "router" };
   }
-});
-
-router.beforeEach(() => {
-  console.log("global beforeEach");
-});
-
-router.beforeResolve(() => {
-  console.log("global beforeResolve");
-});
-
-router.afterEach(() => {
-  console.log("global afterEach");
 });
 
 export default router;

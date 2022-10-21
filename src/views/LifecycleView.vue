@@ -13,13 +13,14 @@ import {
   onUnmounted,
   onUpdated,
 } from "@vue/runtime-core";
-const component = "i'm Default ";
+const component = "Default ";
 const setup = " setup API";
 
 export default {
   name: "Life",
   components: {},
   setup() {
+    console.log("[Default]");
     console.log(component + setup);
 
     onBeforeMount(() => {

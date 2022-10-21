@@ -13,74 +13,7 @@
   <router-view />
 </template>
 <script>
-import {
-  onBeforeMount,
-  onBeforeUnmount,
-  onBeforeUpdate,
-  onMounted,
-  onUnmounted,
-  onUpdated,
-} from "@vue/runtime-core";
-const component = "i'm App ";
-const setup = " setup";
-
-export default {
-  name: "App",
-  components: {},
-  setup() {
-    console.log(component + "setup API");
-
-    onBeforeMount(() => {
-      console.log(component + "onBeforeMount" + setup);
-    });
-
-    onMounted(() => {
-      console.log(component + "onMounted" + setup);
-    });
-
-    onBeforeUpdate(() => {
-      console.log(component + "onBeforeUpdate" + setup);
-    });
-
-    onUpdated(() => {
-      console.log(component + "onUpdated" + setup);
-    });
-
-    onBeforeUnmount(() => {
-      console.log(component + "onBeforeUnmount" + setup);
-    });
-
-    onUnmounted(() => {
-      console.log(component + "onUnmounted" + setup);
-    });
-
-    return { setup };
-  },
-  beforeCreate() {
-    console.log(component + "beforeCreated");
-  },
-  created() {
-    console.log(component + "created");
-  },
-  beforeMount() {
-    console.log(component + "beforeMount");
-  },
-  mounted() {
-    console.log(component + "mounted");
-  },
-  beforeUpdate() {
-    console.log(component + "beforeUpdate");
-  },
-  updated() {
-    console.log(component + "updated");
-  },
-  beforeUnmount() {
-    console.log(component + "beforeUnmount");
-  },
-  unmounted() {
-    console.log(component + "unmounted");
-  },
-};
+const component = "App ";
 </script>
 <style lang="scss">
 #app {

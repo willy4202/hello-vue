@@ -17,7 +17,7 @@ import {
   onUpdated,
   ref,
 } from "@vue/runtime-core";
-const component = "i'm Target ";
+const component = "Target ";
 const setup = " setup API";
 
 export default {
@@ -25,7 +25,7 @@ export default {
   components: {},
   setup() {
     const count = ref(0);
-
+    console.log("[Target]");
     console.log(component + setup);
 
     onBeforeMount(() => {
