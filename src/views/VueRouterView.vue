@@ -8,14 +8,8 @@
     </nav>
   </article>
 </template>
-<script>
-export default {
-  setup() {
-    const isToken = !!sessionStorage.getItem("token");
-
-    return { isToken };
-  },
-};
+<script setup>
+const isToken = !!sessionStorage.getItem("token");
 </script>
 
 <style scoped lang="scss">

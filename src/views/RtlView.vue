@@ -3,14 +3,10 @@
   <css-dir-example>CSS dir</css-dir-example>
   <rtl-example>RTLCSS</rtl-example>
 </template>
-<script>
+<script setup>
 import RtlExample from "@/components/RtlExamples/RtlExample.vue";
 import HtmlDirExample from "@/components/RtlExamples/HtmlDirExample.vue";
 import CssDirExample from "@/components/RtlExamples/CssDirExample.vue";
-
-export default {
-  components: { RtlExample, HtmlDirExample, CssDirExample },
-};
 </script>
 
 <style lang="scss">

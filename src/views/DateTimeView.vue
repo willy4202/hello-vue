@@ -12,13 +12,8 @@
     </p>
   </main>
 </template>
-<script>
+<script setup>
 import LangSelector from "@/components/LangSelector.vue";
-
-export default {
-  components: { LangSelector },
-  setup() {},
-};
 </script>
 
 <style scoped>
