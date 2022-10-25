@@ -8,6 +8,10 @@
       <button @click="increase">add count</button>
       <p>{{ message }}</p>
       <p>{{ reversedMessage }}</p>
+
+      <!-- reuseable -->
+      <h3>{{ reuseTitle }}</h3>
+      <p>{{ reuseData }}</p>
     </main>
 
     <!-- setup -->
@@ -18,6 +22,10 @@
       <button @click="addCount">add count</button>
       <p>{{ setupMessage }}</p>
       <p>{{ setupReverse }}</p>
+
+      <!-- reuseable -->
+      <h3>{{ compoTitle }}</h3>
+      <p>{{ compData }}</p>
     </main>
   </article>
   <section>
@@ -29,7 +37,9 @@
 </template>
 
 <script>
+import mixins from "@/mixins/mixins";
 export default {
+  mixins: [mixins],
   data() {
     return {
       count: 0,
@@ -56,10 +66,11 @@ export default {
 const { ref } = require("@vue/reactivity");
 const { computed } = require("@vue/runtime-core");
 import { useMouse } from "@/plugins/mouseTracker";
+import useComp from "@/plugins/compositions";
 
 let setupCount = ref(0);
 const addCount = () => {
-  setupCount.value++;
+  setupCount.value += 1;
 };
 const setupPlusOne = computed(() => setupCount.value + 1);
 
@@ -69,6 +80,8 @@ const setupReverse = computed(() => {
 });
 
 const { x, y } = useMouse();
+
+const { compoTitle, compData, compMethod } = useComp();
 </script>
 
 <style lang="scss" scoped>
