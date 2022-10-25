@@ -4,28 +4,28 @@
     <main>
       <h1>option</h1>
       <p>{{ count }}</p>
-      <p>computed : {{ plusOne }}</p>
+
       <button @click="increase">add count</button>
       <p>{{ message }}</p>
       <p>{{ reversedMessage }}</p>
 
-      <!-- reuseable -->
+      <!-- Mixins -->
       <h3>{{ reuseTitle }}</h3>
-      <p>{{ reuseData }}</p>
+      <button @click="reuseMethod">{{ message }}</button>
     </main>
 
     <!-- setup -->
     <main>
       <h1>setup</h1>
       <p>{{ setupCount }}</p>
-      <p>computed : {{ setupPlusOne }}</p>
+
       <button @click="addCount">add count</button>
       <p>{{ setupMessage }}</p>
       <p>{{ setupReverse }}</p>
 
-      <!-- reuseable -->
+      <!-- Composition -->
       <h3>{{ compoTitle }}</h3>
-      <p>{{ compData }}</p>
+      <button @click="compMethod">{{ compData }}</button>
     </main>
   </article>
   <section>
@@ -47,9 +47,6 @@ export default {
     };
   },
   computed: {
-    plusOne() {
-      return this.count + 1;
-    },
     reversedMessage() {
       return this.message.split("").reverse().join("");
     },
@@ -59,20 +56,28 @@ export default {
       this.count++;
     },
   },
+  watch: {
+    count(newValue, oldValue) {
+      console.log("새로운 option 값: " + newValue);
+    },
+  },
 };
 </script>
 
 <script setup>
-const { ref } = require("@vue/reactivity");
-const { computed } = require("@vue/runtime-core");
 import { useMouse } from "@/plugins/mouseTracker";
 import useComp from "@/plugins/compositions";
+const { ref } = require("@vue/reactivity");
+const { computed, watch } = require("@vue/runtime-core");
 
 let setupCount = ref(0);
+
 const addCount = () => {
   setupCount.value += 1;
 };
-const setupPlusOne = computed(() => setupCount.value + 1);
+watch(setupCount, (newValue, oldValue) => {
+  console.log("새로운 setup 값: " + newValue);
+});
 
 let setupMessage = ref("this is setup!");
 const setupReverse = computed(() => {

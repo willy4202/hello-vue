@@ -1,7 +1,7 @@
 export default {
   data: () => ({
     reuseTitle: "Mixin",
-    reuseData: "Mixin data",
+    message: "Mixin data",
   }),
   methods: {
     reuseMethod() {
