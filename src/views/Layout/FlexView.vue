@@ -32,7 +32,9 @@
     </div>
 
     <div class="section">
-      <img src="@/assets/appleAssets/iphone14.jpeg" />
+      <div class="img-wrapper">
+        <img src="@/assets/appleAssets/iphone14.jpeg" />
+      </div>
       <article>
         <h1>
           <strong>iPad</strong>
@@ -114,6 +116,16 @@
   color: white;
   img {
     flex-grow: 1;
+  }
+}
+
+.img-wrapper {
+  width: 100%;
+
+  position: absolute;
+  z-index: -2;
+  img {
+    width: 100%;
   }
 }
 </style>
