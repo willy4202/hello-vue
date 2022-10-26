@@ -100,6 +100,18 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "Compo" */ "../views/CompositionView.vue"),
   },
+  {
+    path: "/flex",
+    name: "flex",
+    component: () =>
+      import(/* webpackChunkName: "flex" */ "../views/Layout/FlexView.vue"),
+  },
+  {
+    path: "/grid",
+    name: "grid",
+    component: () =>
+      import(/* webpackChunkName: "grid" */ "../views/Layout/GridView.vue"),
+  },
 ];
 
 const router = createRouter({
