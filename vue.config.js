@@ -18,7 +18,6 @@ module.exports = defineConfig({
         additionalData: `
         @import "@/assets/scss/_variable.scss";
         @import "@/assets/scss/_button.scss";
-        @import "@/assets/scss/_responsive.scss
         `,
       },
     },

@@ -55,16 +55,20 @@
 </template>
 
 <style lang="scss">
-.contain {
+@mixin flex-direction-align($dir, $align) {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: $dir;
+  align-items: $align;
+}
+
+.contain {
+  @include flex-direction-align(column, center);
 }
 
 .section {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 692px;
   padding: 50px;
@@ -74,10 +78,7 @@
   }
 
   article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    @include flex-direction-align(column, center);
     h1 {
       font-size: 3rem;
     }
@@ -108,8 +109,7 @@
 }
 
 .theme-dark {
-  display: flex;
-  flex-direction: column;
+  @include flex-direction-align(column, center);
   background: black;
   color: white;
   img {
