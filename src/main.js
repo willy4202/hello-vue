@@ -26,6 +26,7 @@ import VueCookies from "vue-cookies";
 import i18n from "./locales";
 import axios from "axios";
 import { BootstrapVue3 } from "bootstrap-vue-3";
+import VueSplide from "@splidejs/vue-splide";
 
 const app = createApp(App);
 
@@ -46,6 +47,7 @@ app
   .use(i18n)
   .use(VueCookies, { expire: "7d" })
   .use(BootstrapVue3)
+  .use(VueSplide)
 
   .provide("today", new Date().toISOString().split("T")[0])
   .mount("#app");
