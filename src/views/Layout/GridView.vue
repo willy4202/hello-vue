@@ -217,6 +217,7 @@ body {
   }
   @media screen and (max-width: $responsive-max-width) {
     grid-template-columns: 1fr;
+    padding: 0;
   }
 }
 
