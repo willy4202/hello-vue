@@ -103,6 +103,10 @@ export default {
   justify-content: $justify;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .contain {
   @include flex-dir-ali-just(column, center, flex-start);
 }
