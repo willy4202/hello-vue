@@ -29,7 +29,6 @@
       </article>
       <img src="@/assets/appleAssets/iphone.jpeg" />
     </div>
-
     <div class="module-contnet background-color">
       <figure class="img-wrapper">
         <img src="@/assets/appleAssets/iphone14.jpeg" />
@@ -45,8 +44,8 @@
         </span>
       </article>
     </div>
+    <!-- <module-content></module-content> -->
     <flex-unit />
-
     <splide-carousel></splide-carousel>
   </div>
 </template>
@@ -55,9 +54,10 @@
 import LtrCarousel from "@/components/Carousel/LtrCarousel.vue";
 import SplideCarousel from "@/components/Carousel/SplideCarousel.vue";
 import FlexUnit from "@/components/Layout/FlexUnit.vue";
+import ModuleContent from "@/components/Layout/ModuleContent.vue";
 
 export default {
-  components: { LtrCarousel, SplideCarousel, FlexUnit },
+  components: { LtrCarousel, SplideCarousel, FlexUnit, ModuleContent },
   data() {
     const products = [
       {
@@ -96,12 +96,7 @@ export default {
 </script>
 
 <style lang="scss">
-@mixin flex-dir-ali-just($dir, $align, $justify) {
-  display: flex;
-  flex-direction: $dir;
-  align-items: $align;
-  justify-content: $justify;
-}
+@import "@/assets/scss/layoutAbstract/_mixins.scss";
 
 body {
   overflow-x: hidden;
@@ -114,8 +109,8 @@ body {
 .module-contnet {
   @include flex-dir-ali-just(row, center, center);
   position: relative;
+  height: $apple-module-height;
   width: 100%;
-  height: 692px;
   img {
     height: 70%;
   }
@@ -137,11 +132,10 @@ body {
     }
   }
 
-  @media screen and (max-width: 734px) {
+  @media screen and (max-width: $responsive-max-width) {
     flex-direction: column-reverse;
+    height: $apple-module-height-mobil;
     width: 100%;
-    height: 600px;
-
     img {
       height: 50%;
       margin-top: 20px;
@@ -180,7 +174,7 @@ body {
   text-align: center;
   position: absolute;
   top: 8%;
-  @media screen and (max-width: 734px) {
+  @media screen and (max-width: $responsive-max-width) {
     top: 15%;
   }
 }

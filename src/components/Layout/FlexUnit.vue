@@ -49,17 +49,12 @@ export default {};
 </script>
 
 <style lang="scss">
-@mixin flex-dir-ali-just($dir, $align, $justify) {
-  display: flex;
-  flex-direction: $dir;
-  align-items: $align;
-  justify-content: $justify;
-}
+@import "@/assets/scss/layoutAbstract/_mixins.scss";
 
 .unit-container {
   @include flex-dir-ali-just(column, center, flex-start);
-  width: 100%;
   position: relative;
+  width: 100%;
 
   .unit-wrapper {
     @include flex-dir-ali-just(row, center, space-around);
@@ -67,11 +62,11 @@ export default {};
 
     .unit {
       @include flex-dir-ali-just(column, center, flex-end);
-      height: 580px;
-      width: 100%;
       position: relative;
-      margin: 5px;
       text-align: center;
+      height: $apple-category-unit-height;
+      width: 100%;
+      margin: 5px;
 
       .unit-copy-wrapper {
         position: absolute;
@@ -88,15 +83,15 @@ export default {};
     }
   }
 
-  @media screen and (max-width: 734px) {
+  @media screen and (max-width: $responsive-max-width) {
     .unit-wrapper {
       @include flex-dir-ali-just(column, center, flex-start);
 
       .unit {
         @include flex-dir-ali-just(column, center, flex-end);
+        position: relative;
         height: 470px;
         width: 100%;
-        position: relative;
         margin: 10px;
 
         .unit-copy-wrapper {
