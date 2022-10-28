@@ -14,7 +14,7 @@
         </span>
       </article>
     </div>
-    <div class="module-content theme-dark">
+    <div class="module-content theme-iphonePro theme-dark">
       <article class="copy-wrapper align-article">
         <h1>
           <strong>iPhone 14 Pro</strong>
@@ -41,6 +41,20 @@
       </article>
       <img src="@/assets/appleAssets/iphone14.jpeg" />
     </div>
+    <div class="unit-container">
+      <div
+        v-for="item in unitProducts"
+        :key="item.id"
+        class="unit-wrapper"
+        :class="item.isDark"
+      >
+        <div class="unit-copy-wrapper">
+          <h2>{{ item.name }}</h2>
+          <p>{{ item.description }}</p>
+        </div>
+        <img :src="require(`@/assets/appleAssets/${item.img}`)" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -48,13 +62,52 @@
 import ModuleContent from "@/components/Layout/ModuleContent.vue";
 export default {
   components: { ModuleContent },
+
+  data() {
+    return {
+      unitProducts: [
+        {
+          id: 1,
+          name: "WATCH",
+          description: "모험을 위한 시간",
+          img: "watch.jpeg",
+          isDark: null,
+        },
+        {
+          id: 2,
+          name: "WATCH",
+          description: "건강하게 앞서 나아가다.",
+          img: "watch2.jpeg",
+          isDark: "theme-dark",
+        },
+        {
+          id: 3,
+          name: "iPad Pro",
+          description: "막강한 성능의 M2 탑재",
+          img: "ipads.png",
+          isDark: "theme-dark",
+        },
+        {
+          id: 4,
+          name: "WATCH",
+          description: "부담 없이 빠져들다.",
+          img: "watchs3.jpeg",
+          isDark: null,
+        },
+      ],
+    };
+  },
 };
 </script>
 
 <style lang="scss">
+body {
+  overflow-x: hidden;
+}
+
 .contain {
   display: grid;
-  grid-auto-rows: 1fr;
+  grid-auto-rows: auto;
 }
 
 .module-content {
@@ -62,18 +115,17 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   align-items: center;
-  position: relative;
-  height: $apple-module-height;
+  height: $module-height;
+  width: 100%;
 
   img {
-    height: 400px;
+    height: $module-img-height;
     grid-column: 2/3;
     justify-self: end;
   }
   article {
     text-align: center;
     grid-column: 3/4;
-    justify-self: start;
     white-space: nowrap;
     h1 {
       font-size: 3rem;
@@ -87,12 +139,24 @@ export default {
       }
     }
   }
+  @media screen and (max-width: $responsive-max-width) {
+    height: $module-height-mobile;
+
+    img {
+      height: $module-img-height-mobile;
+      grid-column: 2/4;
+      grid-row: 2/3;
+      justify-content: center;
+    }
+
+    article {
+      grid-column: 2/4;
+    }
+  }
 }
 
-.theme-dark {
+.theme-iphonePro {
   grid-template-rows: repeat(2, 1fr);
-  background-color: black;
-  color: white;
 
   .align-img,
   .align-article {
@@ -119,5 +183,45 @@ export default {
     grid-row: 1/3;
     height: 100%;
   }
+
+  @media screen and (max-width: $responsive-max-width) {
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.unit-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+  .unit-wrapper {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    height: $category-unit-height;
+    text-align: center;
+
+    .unit-copy-wrapper {
+      margin-top: 60px;
+    }
+
+    img {
+      max-width: $unit-img-height;
+      align-self: end;
+      justify-self: center;
+      object-fit: contain;
+    }
+  }
+  @media screen and (max-width: $responsive-max-width) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.theme-dark {
+  background-color: black;
+  color: white;
 }
 </style>

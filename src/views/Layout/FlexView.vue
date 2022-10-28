@@ -46,7 +46,7 @@
     </div>
     <!-- <module-content></module-content> -->
     <flex-unit />
-    <splide-carousel></splide-carousel>
+    <!-- <splide-carousel></splide-carousel> -->
   </div>
 </template>
 
@@ -109,7 +109,7 @@ body {
 .module-contnet {
   @include flex-dir-ali-just(row, center, center);
   position: relative;
-  height: $apple-module-height;
+  height: $module-height;
   width: 100%;
   img {
     height: 70%;
@@ -134,7 +134,7 @@ body {
 
   @media screen and (max-width: $responsive-max-width) {
     flex-direction: column-reverse;
-    height: $apple-module-height-mobil;
+    height: $module-height-mobile;
     width: 100%;
     img {
       height: 50%;

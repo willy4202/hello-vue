@@ -64,7 +64,7 @@ export default {};
       @include flex-dir-ali-just(column, center, flex-end);
       position: relative;
       text-align: center;
-      height: $apple-category-unit-height;
+      height: $category-unit-height;
       width: 100%;
       margin: 5px;
 
@@ -77,7 +77,7 @@ export default {};
         @include flex-dir-ali-just(column, center, flex-end);
         max-width: 580px;
         img {
-          max-width: 464px;
+          max-width: $unit-img-height;
         }
       }
     }
