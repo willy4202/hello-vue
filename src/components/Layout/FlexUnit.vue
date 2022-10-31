@@ -44,9 +44,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+<script></script>
 
 <style lang="scss">
 @import "@/assets/scss/layoutAbstract/_mixins.scss";
@@ -66,6 +64,7 @@ export default {};
       text-align: center;
       height: $category-unit-height;
       width: 100%;
+      min-width: 0;
       margin: 5px;
 
       .unit-copy-wrapper {
@@ -76,8 +75,9 @@ export default {};
       .unit-img-wrapper {
         @include flex-dir-ali-just(column, center, flex-end);
         max-width: 580px;
+        min-width: 0;
         img {
-          max-width: $unit-img-height;
+          max-width: 100%;
         }
       }
     }

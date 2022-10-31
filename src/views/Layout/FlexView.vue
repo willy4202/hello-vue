@@ -44,9 +44,8 @@
         </span>
       </article>
     </div>
-    <!-- <module-content></module-content> -->
     <flex-unit />
-    <!-- <splide-carousel></splide-carousel> -->
+    <splide-carousel></splide-carousel>
   </div>
 </template>
 
@@ -58,40 +57,6 @@ import ModuleContent from "@/components/Layout/ModuleContent.vue";
 
 export default {
   components: { LtrCarousel, SplideCarousel, FlexUnit, ModuleContent },
-  data() {
-    const products = [
-      {
-        id: 1,
-        name: "WATCH",
-        description: "모험을 위한 시간",
-        img: "watch.jpeg",
-        isDark: false,
-      },
-      {
-        id: 2,
-        name: "WATCH",
-        description: "모험을 위한 시간",
-        img: "watch2.jpeg",
-        isDark: true,
-      },
-      {
-        id: 3,
-        name: "iPad Pro",
-        description: "막강한 성능의 M2 탑재",
-        img: "ipads.png",
-        isDark: true,
-      },
-      {
-        id: 4,
-        name: "Apple tv 4K",
-        description: "보다 장대하게 경험하는 Apple의 모든 것.",
-        img: "ipads.png",
-        isDark: false,
-      },
-    ];
-
-    return { products };
-  },
 };
 </script>
 
@@ -104,6 +69,7 @@ body {
 
 .contain {
   @include flex-dir-ali-just(column, center, flex-start);
+  width: 100vw;
 }
 
 .module-contnet {

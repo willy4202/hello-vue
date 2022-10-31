@@ -106,7 +106,7 @@ body {
 }
 
 .contain {
-  display: grid;
+  /* display: grid; */
   grid-auto-rows: auto;
 }
 
@@ -116,12 +116,11 @@ body {
   justify-items: center;
   align-items: center;
   height: $module-height;
-  width: 100%;
+  width: auto;
 
   img {
     height: $module-img-height;
     grid-column: 2/3;
-    justify-self: end;
   }
   article {
     text-align: center;
@@ -182,6 +181,7 @@ body {
     grid-column: 1/5;
     grid-row: 1/3;
     height: 100%;
+    width: 100%;
   }
 
   @media screen and (max-width: $responsive-max-width) {
@@ -203,6 +203,7 @@ body {
     grid-template-rows: repeat(2, 1fr);
     height: $category-unit-height;
     text-align: center;
+    min-width: 0;
 
     .unit-copy-wrapper {
       margin-top: 60px;
@@ -210,9 +211,11 @@ body {
 
     img {
       max-width: $unit-img-height;
+      width: 100%;
       align-self: end;
       justify-self: center;
       object-fit: contain;
+      min-width: 0;
     }
   }
   @media screen and (max-width: $responsive-max-width) {
