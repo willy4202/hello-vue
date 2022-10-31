@@ -77,7 +77,7 @@
         max-width: 580px;
         min-width: 0;
         img {
-          max-width: 100%;
+          max-width: 80%;
         }
       }
     }

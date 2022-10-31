@@ -56,7 +56,12 @@ import FlexUnit from "@/components/Layout/FlexUnit.vue";
 import ModuleContent from "@/components/Layout/ModuleContent.vue";
 
 export default {
-  components: { LtrCarousel, SplideCarousel, FlexUnit, ModuleContent },
+  components: {
+    LtrCarousel,
+    SplideCarousel,
+    FlexUnit,
+    ModuleContent,
+  },
 };
 </script>
 

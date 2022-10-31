@@ -16,6 +16,7 @@ import "bootstrap-vue-3";
 import "hooper/dist/hooper.css";
 import "vue3-carousel";
 import "vue-scroll-picker/lib/style.css";
+import "@splidejs/splide/css/core";
 
 import VueCountdown from "@chenfengyuan/vue-countdown";
 import VueGtag from "vue-gtag-next";

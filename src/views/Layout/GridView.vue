@@ -181,7 +181,8 @@ body {
     grid-column: 1/5;
     grid-row: 1/3;
     height: 100%;
-    /* width: 100%; */
+    width: 100%;
+    object-fit: cover;
   }
 
   @media screen and (max-width: $responsive-max-width) {
