@@ -1,74 +1,86 @@
 <template>
   <div class="carousel-wrapper">
-    <Splide :options="option" arrow="false">
-      <SplideSlide>
-        <img
-          class="carousel"
-          :src="require(`@/assets/appleAssets/movie.jpeg`)"
-        />
-      </SplideSlide>
-      <SplideSlide>
-        <img
-          class="carousel"
-          :src="require(`@/assets/appleAssets/movie2.jpeg`)"
-        />
-      </SplideSlide>
-      <SplideSlide>
-        <img
-          class="carousel"
-          :src="require(`@/assets/appleAssets/movie3.jpeg`)"
-        />
-      </SplideSlide>
+    <Splide :has-track="false" :options="option" arrow="false">
+      <SplideTrack>
+        <SplideSlide v-for="movie in movies" :key="movie.id">
+          <img
+            class="carousel"
+            :src="require(`@/assets/appleAssets/${movie.img}`)"
+          />
+        </SplideSlide>
+      </SplideTrack>
     </Splide>
-    <div class="my-carousel-progress">
-      <div class="my-carousel-progress-bar"></div>
-    </div>
   </div>
+  <button @click="switchDir">{{ option.direction }}</button>
 </template>
 <script>
-import { Splide, SplideSlide } from "@splidejs/vue-splide";
-import { ref } from "vue";
+import { Splide, SplideSlide, SplideTrack } from "@splidejs/vue-splide";
+import { reactive } from "vue";
 export default {
   components: {
     Splide,
     SplideSlide,
+    SplideTrack,
   },
 
   setup() {
-    const currentDir = ref("rtl");
-    const switchDir = () => {
-      currentDir.value === "ltr"
-        ? (currentDir.value = "rtl")
-        : (currentDir.value = "ltr");
-    };
+    const movies = [
+      { id: 0, img: `movie.jpeg` },
+      { id: 1, img: `movie2.jpeg` },
+      { id: 2, img: `movie3.jpeg` },
+    ];
 
-    const option = {
+    const option = reactive({
       arrows: false,
       direction: "ltr",
+      page: "splide__pagination__page your-class-page",
+    });
+
+    const switchDir = () => {
+      option.direction === "ltr"
+        ? (option.direction = "rtl")
+        : (option.direction = "ltr");
     };
 
-    return { currentDir, switchDir, option };
+    console.log(movies.length);
+
+    return { movies, switchDir, option };
   },
 };
 </script>
 <style lang="scss">
+button {
+  border: none;
+  margin-top: 20px;
+}
+
 .carousel-wrapper {
-  max-width: 90%;
+  max-width: 960px;
+  margin: 5px;
+
+  .carousel {
+    width: 100%;
+  }
 }
 
-.carousel {
-  width: 100%;
-  height: 100%;
-}
+.splide__pagination {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 
-.my-carousel-progress {
-  background: #ccc;
-}
+  li {
+    width: 100%;
 
-.my-carousel-progress-bar {
-  background: greenyellow;
-  height: 2px;
-  transition: width 400ms ease;
-  width: 0;
+    .splide__pagination__page {
+      background-color: gray;
+      width: 100%;
+      border-radius: 0;
+      height: 2px;
+    }
+
+    .is-active {
+      background-color: white;
+      transform: scale(1);
+    }
+  }
 }
 </style>
