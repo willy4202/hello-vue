@@ -50,17 +50,13 @@
 </template>
 
 <script>
-import LtrCarousel from "@/components/Carousel/LtrCarousel.vue";
 import SplideCarousel from "@/components/Carousel/SplideCarousel.vue";
 import FlexUnit from "@/components/Layout/FlexUnit.vue";
-import ModuleContent from "@/components/Layout/ModuleContent.vue";
 
 export default {
   components: {
-    LtrCarousel,
     SplideCarousel,
     FlexUnit,
-    ModuleContent,
   },
 };
 </script>

@@ -55,14 +55,16 @@
         <img :src="require(`@/assets/appleAssets/${item.img}`)" />
       </div>
     </div>
+    <div class="carousel-container">
+      <SplideCarousel></SplideCarousel>
+    </div>
   </div>
 </template>
 
 <script>
-import ModuleContent from "@/components/Layout/ModuleContent.vue";
-export default {
-  components: { ModuleContent },
+import SplideCarousel from "@/components/Carousel/SplideCarousel.vue";
 
+export default {
   data() {
     return {
       unitProducts: [
@@ -97,6 +99,7 @@ export default {
       ],
     };
   },
+  components: { SplideCarousel },
 };
 </script>
 
@@ -106,7 +109,6 @@ body {
 }
 
 .contain {
-  /* display: grid; */
   grid-auto-rows: auto;
 }
 
@@ -228,5 +230,10 @@ body {
 .theme-dark {
   background-color: black;
   color: white;
+}
+
+.carousel-container {
+  display: grid;
+  justify-items: center;
 }
 </style>

@@ -4,7 +4,7 @@
       <SplideTrack>
         <SplideSlide v-for="movie in movies" :key="movie.id">
           <img
-            class="carousel"
+            class="carousel-img"
             :src="require(`@/assets/appleAssets/${movie.img}`)"
           />
         </SplideSlide>
@@ -42,8 +42,6 @@ export default {
         : (option.direction = "ltr");
     };
 
-    console.log(movies.length);
-
     return { movies, switchDir, option };
   },
 };
@@ -55,31 +53,34 @@ button {
 }
 
 .carousel-wrapper {
-  max-width: 960px;
+  max-width: 720px;
   margin: 5px;
+  position: relative;
 
-  .carousel {
+  .carousel-img {
     width: 100%;
   }
-}
 
-.splide__pagination {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-
-  li {
+  .splide__pagination {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    position: absolute;
+    bottom: 10px;
     width: 100%;
+    padding: 0 10px;
 
-    .splide__pagination__page {
-      background-color: gray;
+    li {
       width: 100%;
-      border-radius: 0;
-      height: 2px;
-    }
 
-    .is-active {
-      background-color: white;
-      transform: scale(1);
+      .splide__pagination__page {
+        background-color: gray;
+        width: 100%;
+        height: 2px;
+      }
+
+      .is-active {
+        background-color: white;
+      }
     }
   }
 }
