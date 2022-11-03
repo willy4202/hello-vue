@@ -1,0 +1,28 @@
+//********************
+// FONT Type
+//********************
+
+.font-light {
+  font-weight: 300;
+}
+.font-regular {
+  font-weight: 400;
+}
+.font-bold {
+  font-weight: 600;
+}
+
+:lang(en) {
+  font-family: 'Oswald', sans-serif;
+  color: red;
+}
+
+// :lang(en) {
+//   font-family: 'Noto Sans', sans-serif;
+//   color: red;
+// }
+
+:lang(ar) {
+  font-family: 'Noto Sans Arabic', sans-serif;
+  color: blueviolet;
+}

@@ -112,6 +112,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "grid" */ "../views/Layout/GridView.vue"),
   },
+  {
+    path: "/font",
+    name: "font",
+    component: () =>
+      import(/* webpackChunkName: "grid" */ "../views/WebFontView.vue"),
+  },
 ];
 
 const router = createRouter({
