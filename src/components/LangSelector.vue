@@ -26,7 +26,7 @@ export default {
   methods: {
     resolveLang() {
       return (
-        this.findAvailableLang(this.getCookie("lang")) ??
+        this.findAvailableLang(this.getSettedLangFromCookie("lang")) ??
         this.findAvailableLang(this.getDefaultLang()) ??
         this.$i18n.fallbackLocale
       );
@@ -36,7 +36,7 @@ export default {
       return this.$i18n.availableLocales.find((v) => v == lang);
     },
 
-    getCookie(key) {
+    getSettedLangFromCookie(key) {
       return this.$cookies.get(key);
     },
 

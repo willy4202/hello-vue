@@ -1,12 +1,13 @@
 <template>
   <main :lang="documentLang">
+    <LangSelector></LangSelector>
     <article class="font-light">
       <h1>Web Font</h1>
       <p>
         {{ $t("hello") }}
       </p>
       <select @change="resolveFont">
-        <option v-for="font in fontOptions" :key="font.id" :value="font.lang">
+        <option v-for="font in fontOptions" :key="font.lang" :value="font.lang">
           {{ font.lang }}
         </option>
       </select>
@@ -24,14 +25,16 @@ export default {
     return {
       documentLang: "en-US",
       fontOptions: [
-        { id: 0, lang: "en-US", font: "Noto+Sans" },
-        { id: 1, lang: "ar-AE", font: "Noto+Sans+Arabic" },
+        { lang: "en-US", font: "Noto+Sans" },
+        { lang: "ar-AE", font: "Noto+Sans+Arabic" },
       ],
     };
   },
   created() {
     this.appendFontLink("Noto+Sans");
+    console.log(this.$i18n.availableLocales);
   },
+
   methods: {
     /**  font 교체 */
     resolveFont(e) {
@@ -45,7 +48,7 @@ export default {
     setLocale(lang) {
       this.$i18n.locale = lang;
     },
-    /** article에 반영된 attr의 lang을 바꿔줌 */
+    /** article에 반영된 attr lang을 바꿔줌 */
     changeLangAttr(selected) {
       this.documentLang = selected;
     },
