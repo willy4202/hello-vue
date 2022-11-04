@@ -1,13 +1,13 @@
 <template>
-  <main>
-    <article class="font-light" :lang="selectedLang">
+  <main :lang="documentLang">
+    <article class="font-light">
       <h1>Web Font</h1>
       <p>
         {{ $t("hello") }}
       </p>
       <select @change="resolveFont">
-        <option v-for="data in fontOptions" :key="data.id" :value="data.locale">
-          {{ data.locale }}
+        <option v-for="font in fontOptions" :key="font.id" :value="font.lang">
+          {{ font.lang }}
         </option>
       </select>
     </article>
@@ -22,32 +22,35 @@ export default {
 
   data() {
     return {
-      selectedLang: "en",
-
+      documentLang: "en-US",
       fontOptions: [
-        { id: 0, locale: "en", font: "Oswald" },
-        { id: 1, locale: "ar", font: "Noto+Sans+Arabic" },
+        { id: 0, lang: "en-US", font: "Noto+Sans" },
+        { id: 1, lang: "ar-AE", font: "Noto+Sans+Arabic" },
       ],
     };
   },
-  updated() {},
+  created() {
+    this.appendFontLink("Noto+Sans");
+  },
   methods: {
-    /**  font 관련 함수를 처리하는 로직 */
+    /**  font 교체 */
     resolveFont(e) {
-      const option = e.target;
-      if (option.selectedIndex <= option.length) {
-        this.appendFontLink(this.fontOptions[option.selectedIndex].font);
-        this.changeLangAttr(this.fontOptions[option.selectedIndex].locale);
-        this.removeFontLink(this.fontOptions[option.selectedIndex].font);
-      }
+      const optionIndex = e.target.selectedIndex;
+      this.appendFontLink(this.fontOptions[optionIndex].font);
+      this.removePrevFontLink(this.fontOptions[optionIndex].font);
+      this.setLocale(this.fontOptions[optionIndex].lang);
+      this.changeLangAttr(this.fontOptions[optionIndex].lang);
     },
 
+    setLocale(lang) {
+      this.$i18n.locale = lang;
+    },
     /** article에 반영된 attr의 lang을 바꿔줌 */
     changeLangAttr(selected) {
-      this.selectedLang = selected;
+      this.documentLang = selected;
     },
 
-    /** selected된 option의 id값을 바탕으로 폰트 링크를 head에 추가해주는 함수*/
+    /** selected된 option 값으로 폰트 링크를 head에 추가해주는 함수 */
     appendFontLink(font) {
       const head = document.getElementsByTagName("head")[0];
       const link = document.createElement("link");
@@ -58,14 +61,12 @@ export default {
       head.appendChild(link);
     },
 
-    /** locale 변경시, 이전에 로드한 폰트 링크를 삭제하는 함수 */
-    removeFontLink(id) {
-      console.log(id, "id");
-      const link = document.getElementById(id);
+    /** lang 변경시, 이전에 로드한 폰트 링크를 삭제하는 함수 */
+    removePrevFontLink(id) {
       const links = document.querySelectorAll("link[id]");
       Array.prototype.slice
         .call(links)
-        .filter((x) => (x.id !== id ? x.remove() : null));
+        .map((x) => (x.id !== id ? x.remove() : null));
     },
   },
 };

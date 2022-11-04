@@ -12,17 +12,12 @@
   font-weight: 600;
 }
 
-:lang(en) {
-  font-family: 'Oswald', sans-serif;
+:lang(en-US) {
+  font-family: 'Noto Sans', sans-serif;
   color: red;
 }
 
-// :lang(en) {
-//   font-family: 'Noto Sans', sans-serif;
-//   color: red;
-// }
-
-:lang(ar) {
+:lang(ar-AE) {
   font-family: 'Noto Sans Arabic', sans-serif;
   color: blueviolet;
 }
