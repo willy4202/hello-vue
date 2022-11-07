@@ -1,6 +1,6 @@
 <template>
   <nav class="container mb-4 mt-4">
-    <div class="col-3">
+    <div>
       <select v-model="$i18n.locale">
         <option
           v-for="locale in $i18n.availableLocales"

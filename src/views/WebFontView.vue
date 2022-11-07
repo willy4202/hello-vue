@@ -1,59 +1,72 @@
 <template>
-  <main :lang="documentLang">
-    <LangSelector></LangSelector>
-    <article class="font-light">
-      <h1>Web Font</h1>
-      <p>
-        {{ $t("hello") }}
-      </p>
-      <select @change="resolveFont">
-        <option v-for="font in fontOptions" :key="font.lang" :value="font.lang">
-          {{ font.lang }}
-        </option>
-      </select>
-    </article>
-  </main>
+  <LangSelector />
+  <div class="body">
+    <main :lang="$i18n.locale">
+      <article>
+        <h2>web fonts</h2>
+        <p>
+          {{ $t("hello") }}
+        </p>
+        <p>
+          {{ $t("title") }}
+        </p>
+      </article>
+    </main>
+    <main>
+      <article>
+        <h2>safe fonts</h2>
+        <p>
+          {{ $t("hello") }}
+        </p>
+        <p>
+          {{ $t("title") }}
+        </p>
+      </article>
+    </main>
+  </div>
 </template>
 <script>
 import LangSelector from "@/components/LangSelector.vue";
+import urlOption from "@/compositions/font";
 
 export default {
   name: "font",
   components: { LangSelector },
-
   data() {
     return {
       documentLang: "en-US",
-      fontOptions: [
-        { lang: "en-US", font: "Noto+Sans" },
-        { lang: "ar-AE", font: "Noto+Sans+Arabic" },
-      ],
     };
   },
+
   created() {
-    this.appendFontLink("Noto+Sans");
-    console.log(this.$i18n.availableLocales);
+    this.resolveFontLink("Noto+Sans");
+  },
+
+  updated() {
+    this.changeFont();
   },
 
   methods: {
-    /**  font 교체 */
-    resolveFont(e) {
-      const optionIndex = e.target.selectedIndex;
-      this.appendFontLink(this.fontOptions[optionIndex].font);
-      this.removePrevFontLink(this.fontOptions[optionIndex].font);
-      this.setLocale(this.fontOptions[optionIndex].lang);
-      this.changeLangAttr(this.fontOptions[optionIndex].lang);
+    /** locale 코드에 맞춰 폰트를 추가하고 삭제 하는 기능 */
+    changeFont() {
+      const locale = this.$i18n.locale;
+      switch (locale) {
+        case "en-US":
+          this.resolveFontLink("Noto+Sans");
+          break;
+        case "ar-AE":
+          this.resolveFontLink("Noto+Sans+Arabic");
+          break;
+        default:
+          return;
+      }
     },
 
-    setLocale(lang) {
-      this.$i18n.locale = lang;
-    },
-    /** article에 반영된 attr lang을 바꿔줌 */
-    changeLangAttr(selected) {
-      this.documentLang = selected;
+    resolveFontLink(font) {
+      this.removePrevFontLink(font);
+      this.appendFontLink(font);
     },
 
-    /** selected된 option 값으로 폰트 링크를 head에 추가해주는 함수 */
     appendFontLink(font) {
       const head = document.getElementsByTagName("head")[0];
       const link = document.createElement("link");
@@ -64,12 +77,9 @@ export default {
       head.appendChild(link);
     },
 
-    /** lang 변경시, 이전에 로드한 폰트 링크를 삭제하는 함수 */
     removePrevFontLink(id) {
       const links = document.querySelectorAll("link[id]");
-      Array.prototype.slice
-        .call(links)
-        .map((x) => (x.id !== id ? x.remove() : null));
+      Array.from(links).map((link) => (link.id !== id ? link.remove() : null));
     },
   },
 };
@@ -77,7 +87,17 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/font.scss";
 
-.font-light {
-  text-align: center;
+.body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  article {
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 </style>

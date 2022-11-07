@@ -13,8 +13,8 @@ const messages = {
   "en-US": en,
   "en-GB": gb,
   "ar-AE": ar,
-  "ar-SA": sa,
-  "ru-RU": ru,
+  // "ar-SA": sa,
+  // "ru-RU": ru,
 };
 
 const pluralizationRules = {
