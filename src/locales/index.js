@@ -13,7 +13,7 @@ const messages = {
   "en-US": en,
   "en-GB": gb,
   "ar-AE": ar,
-  // "ar-SA": sa,
+  "ar-SA": sa,
   // "ru-RU": ru,
 };
 

@@ -12,21 +12,35 @@
   font-weight: 600;
 }
 
-@font-face {
-  font-family: 'MaruBuri';
-  src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/MaruBuri-ExtraLight.woff2)
-    format('woff2');
-}
+//maruburi
+@import url('https://webfontworld.github.io/naver/MaruBuri.css');
+
+// noto sans
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600&display=swap');
+
+// noto sans arabic
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;600&display=swap');
+
+// amiri quran arabic
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
 
 :lang(en-GB) {
   font-family: 'MaruBuri';
+  font-display: swap;
 }
 
 :lang(en-US) {
   font-family: 'Noto Sans';
   font-weight: 600;
+  font-display: swap;
 }
 
 :lang(ar-AE) {
-  font-family: 'Noto Sans Arabic';
+  font-family: 'Noto Sans Arabic', sans-serif;
+  font-display: swap;
+}
+
+:lang(ar-SA) {
+  font-family: 'Amiri Quran', serif;
+  font-display: swap;
 }
