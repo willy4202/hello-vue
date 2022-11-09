@@ -1,5 +1,5 @@
 import { createI18n } from "vue-i18n";
-import { ruRule, arRule } from "./pluralizationRules/index";
+import { ruRule, arRule } from "./pluralizationRules";
 import numberFormats from "./numberFormats";
 import datetimeFormats from "./dateTimeFormats";
 

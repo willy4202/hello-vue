@@ -104,13 +104,13 @@ const routes = [
     path: "/flex",
     name: "flex",
     component: () =>
-      import(/* webpackChunkName: "flex" */ "../views/Layout/FlexView.vue"),
+      import(/* webpackChunkName: "flex" */ "../views/LayoutView/FlexView.vue"),
   },
   {
     path: "/grid",
     name: "grid",
     component: () =>
-      import(/* webpackChunkName: "grid" */ "../views/Layout/GridView.vue"),
+      import(/* webpackChunkName: "grid" */ "../views/LayoutView/GridView.vue"),
   },
   {
     path: "/font",
