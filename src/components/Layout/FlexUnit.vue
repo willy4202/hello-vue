@@ -7,7 +7,7 @@
           <p>모험을 위한 시간.</p>
         </div>
         <div class="unit-img-wrapper">
-          <img :src="require(`@/assets/appleAssets/watch.jpeg`)" />
+          <img :src="require(`@/assets/images/watch.jpeg`)" />
         </div>
       </div>
       <div class="unit theme-dark">
@@ -16,7 +16,7 @@
           <p>건강하게 앞서 나아가다.</p>
         </div>
         <div class="unit-img-wrapper">
-          <img :src="require(`@/assets/appleAssets/watch2.jpeg`)" />
+          <img :src="require(`@/assets/images/watch2.jpeg`)" />
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="unit-img-wrapper">
-          <img :src="require(`@/assets/appleAssets/ipads.png`)" />
+          <img :src="require(`@/assets/images/ipads.png`)" />
         </div>
       </div>
       <div class="unit">
@@ -38,7 +38,7 @@
           <p>부담 없이 빠져들다</p>
         </div>
         <div class="unit-img-wrapper">
-          <img :src="require(`@/assets/appleAssets/watchs3.jpeg`)" />
+          <img :src="require(`@/assets/images/watchs3.jpeg`)" />
         </div>
       </div>
     </div>

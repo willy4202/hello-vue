@@ -1,7 +1,7 @@
 <template>
   <div class="contain">
     <div class="module-content">
-      <img src="@/assets/appleAssets/ipad.jpeg" />
+      <img src="@/assets/images/ipad.jpeg" />
       <article>
         <h1>
           <strong>iPad</strong>
@@ -26,7 +26,7 @@
           <div>구입하기</div>
         </span>
       </article>
-      <img class="align-img" src="@/assets/appleAssets/iphone.jpeg" />
+      <img class="align-img" src="@/assets/images/iphone.jpeg" />
     </div>
     <div class="module-content theme-iphone14">
       <article>
@@ -39,7 +39,7 @@
           <div>가격 보기</div>
         </span>
       </article>
-      <img src="@/assets/appleAssets/iphone14.jpeg" />
+      <img src="@/assets/images/iphone14.jpeg" />
     </div>
     <div class="unit-container">
       <div
@@ -52,7 +52,7 @@
           <h2>{{ item.name }}</h2>
           <p>{{ item.description }}</p>
         </div>
-        <img :src="require(`@/assets/appleAssets/${item.img}`)" />
+        <img :src="require(`@/assets/images/${item.img}`)" />
       </div>
     </div>
     <div class="carousel-container">

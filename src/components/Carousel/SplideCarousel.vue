@@ -5,7 +5,7 @@
         <SplideSlide v-for="movie in movies" :key="movie.id">
           <img
             class="carousel-img"
-            :src="require(`@/assets/appleAssets/${movie.img}`)"
+            :src="require(`@/assets/images/${movie.img}`)"
           />
         </SplideSlide>
       </SplideTrack>

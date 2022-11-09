@@ -1,7 +1,7 @@
 <template>
   <div class="contain">
     <div class="module-contnet">
-      <img src="@/assets/appleAssets/ipad.jpeg" />
+      <img src="@/assets/images/ipad.jpeg" />
       <article>
         <h1>
           <strong>iPad</strong>
@@ -27,11 +27,11 @@
           <div>구입하기</div>
         </span>
       </article>
-      <img src="@/assets/appleAssets/iphone.jpeg" />
+      <img src="@/assets/images/iphone.jpeg" />
     </div>
     <div class="module-contnet background-color">
       <figure class="img-wrapper">
-        <img src="@/assets/appleAssets/iphone14.jpeg" />
+        <img src="@/assets/images/iphone14.jpeg" />
       </figure>
       <article class="copy-wrapper">
         <h1>
