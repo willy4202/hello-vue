@@ -96,7 +96,7 @@ export default {
     };
 
     const List = reactive(["안녕하세요", "리스트를", "이용한 ", "RTl입니다."]);
-    const himediLogo = require("@/assets/himediLogo.png");
+    const himediLogo = require("@/assets/images/himediLogo.png");
 
     return {
       List,

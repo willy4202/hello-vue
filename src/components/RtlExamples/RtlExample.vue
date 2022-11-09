@@ -97,7 +97,7 @@ export default {
   data() {
     return {
       List: ["안녕하세요", "리스트를", "이용한 ", "RTL입니다."],
-      himediLogo: require("@/assets/himediLogo.png"),
+      himediLogo: require("@/assets/images/himediLogo.png"),
       currentDir: "ltr",
     };
   },

@@ -103,7 +103,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/layoutAbstract/_mixins.scss";
+@import "@/assets/scss/_mixins.scss";
 
 body {
   overflow-x: hidden;

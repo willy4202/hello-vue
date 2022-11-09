@@ -142,7 +142,7 @@ export default {
       ],
       list: ["안녕하세요", "리스트를", "이용한 ", "dir 설정입니다."],
       currentDir: "ltr",
-      himediLogo: require("@/assets/himediLogo.png"),
+      himediLogo: require("@/assets/images/himediLogo.png"),
     };
   },
 
