@@ -1,61 +1,65 @@
+<!-- eslint-disable no-unused-vars -->
 <template>
-  <todo-list-new />
-  <section class="container">
-    <h3>{{ data }}</h3>
-    <div class="row justify-content-center m-2">
-      <todo-list-main />
-    </div>
-  </section>
+	<div>
+		<todo-list-new />
+		<section class="container">
+			<h3>{{ data }}</h3>
+			<div class="row justify-content-center m-2">
+				<todo-list-main />
+			</div>
+		</section>
+	</div>
 </template>
 <script>
-import { readonly, ref, provide } from "vue";
-import { useStorage } from "@/compositions/storage";
-import TodoListNew from "./TodoListNew.vue";
-import TodoListMain from "./TodoListMain.vue";
+import { readonly, ref, provide } from 'vue';
+import { useStorage } from '@/compositions/storage';
+import TodoListNew from './TodoListNew.vue';
+import TodoListMain from './TodoListMain.vue';
 
 export default {
-  name: "TodoListContainer",
-  components: { TodoListNew, TodoListMain },
-  props: ["data"],
-  setup(props, context) {
-    const todos = ref([]);
-    const { loadTodos, saveTodos, storage_id } = useStorage();
+	name: 'TodoListContainer',
+	components: { TodoListNew, TodoListMain },
+	props: ['data'],
+	// eslint-disable-next-line no-unused-vars
+	setup(props, context) {
+		const todos = ref([]);
+		const { loadTodos, saveTodos, storage_id } = useStorage();
 
-    provide("todos", readonly(todos));
+		provide('todos', readonly(todos));
 
-    const initTodos = (init_todos) => {
-      todos.value = init_todos;
-    };
+		const initTodos = init_todos => {
+			todos.value = init_todos;
+		};
 
-    const addTodo = (job, date) => {
-      todos.value.push({
-        id: storage_id.value++,
-        job: job,
-        date: date,
-        completed: false,
-      });
-      saveTodos(todos);
-    };
+		const addTodo = (job, date) => {
+			todos.value.push({
+				id: storage_id.value++,
+				job: job,
+				date: date,
+				completed: false,
+			});
+			saveTodos(todos);
+		};
 
-    const removeTodo = (id) => {
-      todos.value.splice(id, 1);
-      todos.value.forEach((todo, idx) => {
-        todo.id = idx;
-      });
-      saveTodos(todos);
-    };
+		const removeTodo = id => {
+			todos.value.splice(id, 1);
+			todos.value.forEach((todo, idx) => {
+				todo.id = idx;
+			});
+			saveTodos(todos);
+		};
 
-    const completeTodo = (id) => {
-      todos.value.find((todo) => todo.id == id).completed = true;
-      saveTodos(todos);
-    };
+		const completeTodo = id => {
+			todos.value.find(todo => todo.id == id).completed = true;
+			saveTodos(todos);
+		};
 
-    provide("todos", readonly(todos));
-    provide("addTodo", addTodo);
-    provide("removeTodo", removeTodo);
-    provide("completeTodo", completeTodo);
+		provide('todos', readonly(todos));
+		provide('addTodo', addTodo);
+		provide('removeTodo', removeTodo);
+		provide('completeTodo', completeTodo);
 
-    loadTodos(initTodos);
-  },
+		loadTodos(initTodos);
+	},
 };
 </script>
