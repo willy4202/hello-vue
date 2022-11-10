@@ -123,7 +123,15 @@ const routes = [
 		name: 'eslint',
 		component: () =>
 			import(
-				/* webpackChunkName: "eslint" */ '../views/EslintView/EslintView.vue'
+				/* webpackChunkName: "eslint" */ '../views/EslintView/PrivateLint/EslintPrivateView.vue'
+			),
+	},
+	{
+		path: '/eslintpublic',
+		name: 'eslintpublic',
+		component: () =>
+			import(
+				/* webpackChunkName: "eslintpublic" */ '../views/EslintView/PublicLint/EslintPublicView.vue'
 			),
 	},
 ];

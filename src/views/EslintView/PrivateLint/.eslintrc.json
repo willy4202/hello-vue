@@ -1,0 +1,33 @@
+// 기존 eslintrc.js의 설정과 모두 반대로 설정했지만, ESlintView.vue 파일엔
+// eslintrc.js 설정이 적용된다.
+// priority가 js보다 후순위에 있기 때문.
+
+{
+	"root": true,
+	"extends": [
+		"eslint:recommended",
+		"plugin:vue/essential",
+		"prettier"
+	],
+	"rules": {
+        // SFC가 두 개 이상의 템플릿을 반환하는 것을 허용.
+	    "vue/no-multiple-template-root": "off",
+		"prettier/prettier": [
+			"error",
+			{
+				"singleQuote": true,
+				"semi": false,
+				"useTabs": false,
+				"tabWidth": 4,
+				"trailingComma": "none",
+				"printWidth": 160,
+				"bracketSpacing": false
+			}
+		]
+	},
+	"env": {
+		"browser": true,
+		"amd": true,
+		"node": true
+	}
+}

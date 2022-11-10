@@ -1,42 +1,40 @@
 <!-- eslint-disable no-unused-vars -->
 <template>
-	<div>
-		<article>
-			<!-- Option -->
-			<main>
-				<h1>option</h1>
-				<p>{{ count }}</p>
+	<article>
+		<!-- Option -->
+		<main>
+			<h1>option</h1>
+			<p>{{ count }}</p>
 
-				<button @click="increase">add count</button>
-				<p>{{ message }}</p>
-				<p>{{ reversedMessage }}</p>
+			<button @click="increase">add count</button>
+			<p>{{ message }}</p>
+			<p>{{ reversedMessage }}</p>
 
-				<!-- Mixins -->
-				<h3>{{ reuseTitle }}</h3>
-				<button @click="reuseMethod">{{ message }}</button>
-			</main>
+			<!-- Mixins -->
+			<h3>{{ reuseTitle }}</h3>
+			<button @click="reuseMethod">{{ message }}</button>
+		</main>
 
-			<!-- setup -->
-			<main>
-				<h1>setup</h1>
-				<p>{{ setupCount }}</p>
+		<!-- setup -->
+		<main>
+			<h1>setup</h1>
+			<p>{{ setupCount }}</p>
 
-				<button @click="addCount">add count</button>
-				<p>{{ setupMessage }}</p>
-				<p>{{ setupReverse }}</p>
+			<button @click="addCount">add count</button>
+			<p>{{ setupMessage }}</p>
+			<p>{{ setupReverse }}</p>
 
-				<!-- Composition -->
-				<h3>{{ compoTitle }}</h3>
-				<button @click="compMethod">{{ compData }}</button>
-			</main>
-		</article>
-		<section>
-			<h1>Composables</h1>
-			<p>mouse Tracker</p>
-			<p>x : {{ x }}</p>
-			<p>y : {{ y }}</p>
-		</section>
-	</div>
+			<!-- Composition -->
+			<h3>{{ compoTitle }}</h3>
+			<button @click="compMethod">{{ compData }}</button>
+		</main>
+	</article>
+	<section>
+		<h1>Composables</h1>
+		<p>mouse Tracker</p>
+		<p>x : {{ x }}</p>
+		<p>y : {{ y }}</p>
+	</section>
 </template>
 
 <script>

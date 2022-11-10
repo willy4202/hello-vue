@@ -1,23 +1,21 @@
 <template>
-	<div>
-		<h2>now {{ currentEnv }} Env</h2>
-		<h2>Axios</h2>
-		<h3>without Proxy</h3>
+	<h2>now {{ currentEnv }} Env</h2>
+	<h2>Axios</h2>
+	<h3>without Proxy</h3>
 
-		<article>
-			<section v-for="method in httpMethods" :key="method">
-				<h4>{{ method }} Data</h4>
-				<button @click="requestWithoutProxy(method)">{{ method }}</button>
-			</section>
-		</article>
-		<h3>with Proxy</h3>
-		<article>
-			<section v-for="method in httpMethods" :key="method">
-				<h4>{{ method }}Data</h4>
-				<button @click="requestWithProxy(method)">{{ method }}</button>
-			</section>
-		</article>
-	</div>
+	<article>
+		<section v-for="method in httpMethods" :key="method">
+			<h4>{{ method }} Data</h4>
+			<button @click="requestWithoutProxy(method)">{{ method }}</button>
+		</section>
+	</article>
+	<h3>with Proxy</h3>
+	<article>
+		<section v-for="method in httpMethods" :key="method">
+			<h4>{{ method }}Data</h4>
+			<button @click="requestWithProxy(method)">{{ method }}</button>
+		</section>
+	</article>
 </template>
 <script>
 import { axiosInstance, axiosProxyInstnace } from '@/utils/apiController.js';
