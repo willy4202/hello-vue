@@ -40,7 +40,7 @@ app
 	.component('YouTube', YouTube)
 	.use(VueScrollPicker)
 	.use(VueGtag, {
-		id: 'UA-159915865-1',
+		id: 'G-7JTH5P09XK',
 		router,
 	})
 	.use(pinia)
