@@ -29,6 +29,7 @@ import axios from 'axios';
 import { BootstrapVue3 } from 'bootstrap-vue-3';
 import VueSplide from '@splidejs/vue-splide';
 
+const GTAG_ID = 'G-7JTH5P09XK';
 const app = createApp(App);
 
 axios.defaults.withCredentials = true;
@@ -39,10 +40,15 @@ app
 	.component(VueCountdown.name, VueCountdown)
 	.component('YouTube', YouTube)
 	.use(VueScrollPicker)
-	.use(VueGtag, {
-		id: 'G-7JTH5P09XK',
+	.use(
+		VueGtag,
+		{
+			config: {
+				id: GTAG_ID,
+			},
+		},
 		router,
-	})
+	)
 	.use(pinia)
 	.use(router)
 	.use(i18n)
