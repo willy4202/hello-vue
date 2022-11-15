@@ -4,12 +4,7 @@
 
 module.exports = {
 	root: true,
-	extends: [
-		"airbnb",
-		"eslint:recommended",
-		"plugin:vue/essential",
-		"prettier",
-	],
+	extends: ["eslint:recommended", "plugin:vue/essential", "prettier"],
 	// plugin으로 prettier 사용
 	plugins: ["prettier"],
 	rules: {
