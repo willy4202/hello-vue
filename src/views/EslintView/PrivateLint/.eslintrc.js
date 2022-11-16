@@ -1,7 +1,4 @@
-// 단일 View 파일에만 적용되는 ESlint
-// 공용 lint와는 다르게
-// template 제한 , singleQuote 허용하지 않음으로 설정
-
+// EslintView/PrivateLint/eslintrc.js
 module.exports = {
 	root: true,
 	extends: ["eslint:recommended", "plugin:vue/essential", "prettier"],

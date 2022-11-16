@@ -1,7 +1,6 @@
-// 기존 eslintrc.js의 설정과 모두 반대로 설정했지만, ESlintView.vue 파일엔
-// eslintrc.js 설정이 적용된다.
-// priority가 js보다 후순위에 있기 때문.
+// EslintView/PrivateLint/eslintrc.json
 
+// 기존 eslintrc.js의 설정과 모두 반대로 설정했지만, ESlintView.vue 파일엔
 {
 	"root": true,
 	"extends": [

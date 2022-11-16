@@ -1,4 +1,4 @@
-// 전역으로 적용되는 Eslint
+//  global eslint
 module.exports = {
 	root: true,
 	// eslint-config-prettier에서 prettier와 충돌되는 스타일 옵션을 꺼버린다
@@ -13,7 +13,7 @@ module.exports = {
 	plugins: [],
 	// 사용자 편의 규칙 추가
 	rules: {
-		// SFC가 두 개 이상의 템플릿을 반환하는 것을 허용.
+		// SFC가 두 개 이상의 템플릿을 반환하는 것을 허용. @vue/essential에 있는 속성
 		'vue/no-multiple-template-root': 'off',
 		'prettier/prettier': [
 			'error',
