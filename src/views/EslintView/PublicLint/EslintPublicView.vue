@@ -1,13 +1,15 @@
 <template>
-	<h1>{{ title }}</h1>
-	<p>
-		root == <strong>{{ root }}</strong>
-	</p>
-	<h2>rules</h2>
-	<!-- 현재 Global, publicLint의 linter 영향을 받음.  -->
-	<p v-for="rule in applyRules" :key="rule.ruleName">
-		{{ rule.ruleName }} : {{ rule.isActive }}
-	</p>
+	<main>
+		<h1>{{ title }}</h1>
+		<p>
+			root == <strong>{{ root }}</strong>
+		</p>
+		<h2>rules</h2>
+		<!-- 현재 Global, publicLint의 linter 영향을 받음.  -->
+		<p v-for="rule in applyRules" :key="rule.ruleName">
+			{{ rule.ruleName }} : {{ rule.isActive }}
+		</p>
+	</main>
 </template>
 <script>
 export default {

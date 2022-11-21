@@ -4,8 +4,8 @@
 		<p>
 			root == <strong>{{ root }}</strong>
 		</p>
-
 		<h2>rules</h2>
+		<!-- private linter 영향을 받음 -->
 		<p v-for="rule in applyRules" :key="rule.ruleName">
 			{{ rule.ruleName }} : {{ rule.isActive }}
 		</p>
