@@ -7,7 +7,7 @@ COPY package.json .
 
 ADD . .
 
-RUN npm install --force
+RUN npm install
 
 EXPOSE 8081
 
